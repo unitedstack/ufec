@@ -1,0 +1,418 @@
+@strong_color: #ff5a67;
+@border_color: #EDEDED;
+@body_color: #6C777A;
+@bg_color: #FCFCFC;
+@border_color: #F6F6F6;
+@check_color: #B9F1F9;
+@font-color: #252F3D;
+@active-bg-color: #01AFC9;
+@white-color: #ffffff;
+@tab-border-color: #e8e8e8;
+
+.hide {
+  display: none;
+}
+
+// 当没有label的时候用于占位padding-left
+.fix-width-important(@value) {
+  width: @value !important;
+  min-width: @value !important;
+  max-width: @value !important;
+}
+
+.ant-modal-mask-hidden {
+  display: none !important;
+}
+
+.ant-modal-wrap {
+  .ant-modal {
+    .ant-modal-header {
+      background: #F6F6F6;
+      border-radius: 2px 6px 2px 0 0;
+    }
+    .ant-modal-footer {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 50px;
+    }
+  }
+}
+
+.hidden {
+  .ant-form-item-label {
+    visibility: hidden;
+  }
+}
+
+.ant-row {
+  margin-bottom: 8px;
+}
+
+// input password
+.password-wrapper {
+  position: relative;
+  width: 100%;
+  .eye-wrapper {
+    color: #ABB3BA;
+    position: absolute;
+    right: 8px;
+    cursor: pointer;
+    &.active {
+      color: @active-bg-color;
+    }
+  }
+}
+
+.icon-label-wrapper {
+  .ant-form-item-control-wrapper {
+    .ant-form-item-control {
+      .label_value {
+        margin-left: 4px;
+      }
+    }
+  }
+}
+
+.input-number-wrapper {
+  .ant-form-item-control {
+    width: 100%;
+    .ant-form-item-children {
+      display: flex;
+      width: 100%;
+      .ant-input-number {
+        flex: 1;
+      }
+      .input-number-addon {
+        display: inline-block;
+        height: 32px;
+        border-radius: 2px;
+        padding: 0 11px;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 30px;
+        color: #252F3D;
+        text-align: center;
+        background-color: #fafafa;
+        border: 1px solid #d9d9d9;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        border-left: 0;
+      }
+    }
+  }
+}
+
+.slider-row {
+  .ant-form-item-control-wrapper {
+    margin-left: 10px;
+    width: 72%;
+    .ant-slider {
+      float: left;
+      margin: 10px 6px 0 0;
+    }
+    .range {
+      position: absolute;
+      width: 240px;
+      height: 20px;
+      line-height: 20px;
+      text-align: right;
+      margin-top: -24px;
+    }
+    .ant-input-number {
+      width: 78px;
+      margin-top: 10px;
+    }
+  }
+}
+
+.radio-row {
+  .ant-radio-button-wrapper:not(:first-child)::before {
+    background-color: unset;
+  }
+  .ant-radio-button-wrapper-checked,
+  .ant-form-item-control-wrapper {
+    .ant-radio-button-wrapper {
+      width: 144px;
+      height: 34px;
+      line-height: 34px;
+      background-color: #F6F6F6;
+      border-radius: 2px;
+      text-align: center;
+      color: #252F3D;
+      border: none;
+      margin-right: 4px;
+    }
+    .ant-radio-button-wrapper-checked {
+      background-color: #01AFC9;
+      color: #fff;
+    }
+  }
+}
+
+.text-row {
+  padding-left: 0;
+  .holder {
+    .fix-width-important(50px);
+  }
+}
+
+.column-row {
+  .ant-form-item-label {
+    width: auto;
+  }
+  .ant-form-item-control-wrapper {
+    width: 100%;
+  }
+}
+
+.checkout-table-row {
+  .checkout-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .checkout-table-title {
+      display: flex;
+      padding: 4px 10px;
+      background: #FCFCFC;
+      border: 1px solid #F6F6F6;
+      font-size: 11px;
+      color: #999999;
+      line-height: 18px;
+      > div:first-child {
+        flex: .5;
+      }
+      > div:last-child {
+        flex: 1.5;
+      }
+    }
+    .checkout-table-content {
+      .content-wrapper {
+        display: flex;
+        padding: 8px 6px;
+        border: 1px solid #F6F6F6;
+        border-top: 0;
+        .label {
+          width: 60px;
+          padding: 0px 10px;
+          line-height: 32px;
+        }
+        .ant-checkbox-group {
+          flex: 1;
+          border: 1px solid #EDEDED;
+          border-radius: 2px;
+          padding: 6px 10px;
+          .ant-checkbox-group-item {
+            color: #999999;
+            font-size: 10px;
+            > span:last-child {
+              padding-left: 4px;
+              padding-right: 0; 
+            }
+          }
+        }
+        .ant-input {
+          margin-right: 6px;
+          width: 56px;
+          height: 34px;
+          padding: 6px;
+        }
+        .anticon-close {
+          background: #1CAFC6;
+          border-radius: 2px;
+          padding: 10px;
+          margin: 0 4px;
+          color: #ffffff;
+          cursor: not-allowed;
+          &.pointer {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .checkout-table-footer {
+      display: flex;
+      color: #1CAFC6;
+      cursor: pointer;
+      align-items: baseline;
+      .icon {
+        margin-right: 8px;
+        margin-top: 2px;
+        height: 14px;
+        color: #fff;
+        background: #1CAFC6;
+        border-radius: 2px;
+        cursor: pointer;
+        i {
+          display:table-cell;
+          width: 14px;
+          height: 14px;
+        }
+      }
+    }
+  }
+}
+
+.pool-rool, .pool-copy {
+  position: relative;
+  .ant-tabs {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    .ant-tabs-bar {
+      border-bottom: none;
+
+      .ant-tabs-tab {
+        margin-right: 0;
+        text-align: center;
+      }
+      .ant-tabs-nav {
+        display: flex;
+        flex-wrap: wrap;
+        .ant-tabs-tab {
+          width: 32%;
+          margin-right: 2%;
+          margin-bottom: 6px;
+          background-color: @border_color; 
+          color: @font-color;
+          letter-spacing: 0;
+          font-weight: 200;
+          border: none;
+          border-radius: 2px;
+          &:nth-child(3n+4) {
+            margin-right: 0;
+          }
+        }
+        .ant-tabs-tab-active {
+          background-color: @active-bg-color;
+          color: @white-color;
+          font-weight: 200;
+        }
+      }
+    }
+    .ant-tabs-content {
+      .ant-tabs-bar {
+        .ant-tabs-nav {
+          display: block;
+          .ant-tabs-tab {
+            width: 32% !important;
+            margin-right: 2% !important;
+          }
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+  .label-positoin, .label-positoin-number {
+    position: absolute;
+    top: 114px;
+    right: 460px;
+    color: #6C777A;
+  }
+  .label-positoin-number {
+    top: 176px;
+  }
+}
+
+.alert-row {
+  padding-left: 50px;
+  margin-bottom: 14px;
+  > .ant-alert {
+    > i {
+      top: 10px;
+    }
+  }
+}
+
+.keypair-wrapper {
+  .title-wrapper {
+    width: 100%;
+    background: #FCFCFC;
+    border: 1px solid #F6F6F6;
+    display: flex;
+    padding: 4px 10px;
+    font-size: 11px;
+    color: #999999;
+    line-height: 18px;
+    > div {
+      flex: 1;
+    }
+  }
+  .content-wrapper {
+    width: 100%;
+    > div {
+      display: flex;
+      width: 100%;
+      border: 1px solid #F6F6F6;
+      color: #EDEDED;
+      input {
+        flex: 1;
+        margin: 6px 3px 10px 6px;
+      }
+      i {
+        line-height: 42px;
+        margin-right: 6px;
+        cursor: not-allowed;
+        &.pointer {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .footer-wrapper {
+    display: flex;
+    align-items: baseline;
+    font-size: 12px;
+    color: #1CAFC6;
+    letter-spacing: 0;
+    .icon {
+      margin-right: 8px;
+      margin-top: 2px;
+      height: 14px;
+      color: #fff;
+      background: #1CAFC6;
+      border-radius: 2px;
+      cursor: pointer;
+      i {
+        display:table-cell;
+        width: 14px;
+        height: 14px;
+      }
+    }
+    > div {
+      cursor: pointer;
+    }
+  }
+}
+
+.expand-row {
+  padding-left: 0;
+  cursor: pointer;
+  div {
+    margin-left: 112px;
+    color: #01AFC9;
+    line-height: 18px;
+  }
+  i {
+    vertical-align: 2px;
+    font-size: 10px;
+    margin-left: 4px;
+  }
+}
+
+.ant-form-item-label label {
+  color: #6C777A;
+  font-size: 12px;
+}
+
+.steps-wrapper {
+  .btn-default {
+    background: #F0F0F0;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #252F3D;
+    letter-spacing: 0;
+    border-color: #F0F0F0;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "title": "",
+  "fields": [{
+    "type": "text",
+    "field": "info"
+  }, {
+    "type": "alert",
+    "field": "message"
+  }],
+  "btn": {
+    "value": "clear",
+    "type": "danger",
+    "disabled": false
+  }
+}

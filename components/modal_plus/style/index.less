@@ -1,0 +1,110 @@
+@font-color: #252F3D;
+@white-color: #ffffff;
+@border_color: #F6F6F6;
+.hide {
+  display: none;
+}
+
+#main {
+  position: relative;
+}
+.component_modal_plus {
+  display: block;
+  height: 100%;
+  overflow-y: auto;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0;
+  z-index: 99;
+  background-color: @white-color;
+  font-size: 12px;
+  margin-left: 12px;
+  margin-top: 12px;
+  .title {
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 34px;
+    border-bottom: 2px solid @border_color;
+    padding-left: 20px;
+    box-sizing: border-box;
+    span {
+      cursor: pointer;
+      i {
+        margin-right: 8px;
+      }
+    }
+  }
+  .content {
+    overflow: auto;
+    .content-wrapper {
+      width: 592px;
+    }
+    .error-tip {
+      .alert-row {
+        padding-left: 120px;
+      }
+    }
+  }
+  .btn-wrapper {
+    display: flex;
+    margin-top: 30px;
+    width: 100%;
+    height: 40px;
+    justify-content: space-between;
+    .cancel-button {
+      background: @normal-color;
+      color: @text-color;
+      border-radius: 2px;
+      border: none;
+      margin-left: 50px;
+    }
+  }
+
+  &.modal-enter {
+    opacity: 0;
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(.08, .82, .17, 1);
+    animation-play-state: paused;
+
+    &.modal-enter-active {
+      animation-name: modalZoomIn;
+      animation-play-state: running;
+    }
+  }
+
+  &.modal-leave {
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(.78, .14, .15, .86);
+    animation-play-state: paused;
+
+    &.modal-leave-active {
+      animation-name: modalZoomOut;
+      animation-play-state: running;
+    }
+  }
+}
+
+@keyframes modalZoomIn {
+  0% {
+    opacity: 0;
+    transform: translate(-10%, -10%) scale(0.6, 0.6);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1, 1);
+  }
+}
+
+@keyframes modalZoomOut {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1, 1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-10%, -10%) scale(0.6, 0.6);
+  }
+}

@@ -1,0 +1,99 @@
+@dark: #2B3538;
+@light: #343E41;
+
+.garen-com-menu {
+  height: 100%;
+  background-color: @dark;
+  overflow: hidden;
+  .side_menu {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    .logo-wrapper {
+      width: 100%;
+      height: 50px;
+      min-height: 50px;
+      max-height: 50px;
+      line-height: 50px;
+      background-color: #151C1F;
+      img {
+        margin-left: 24px;
+        height: 32px;
+      }
+    }
+    .menu-wrapper {
+      flex: 1;
+      overflow-x: hidden;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    // 设置menu下的icon大小，并且和文字对齐
+    i {
+      font-size: 12px;
+      vertical-align: 1px;
+    }
+    i.anticon-circle {
+      font-size: 12px;
+    }
+    // antd 变量覆盖，不忍吐槽，只能这样了
+    .ant-menu {
+      background-color: @dark;
+      .ant-menu-submenu {
+        background-color: @light;
+        .ant-menu {
+          background-color: @dark;
+          .ant-menu-item {
+            > a {
+              box-sizing: content-box;
+              margin-left: -24px;
+              color: rgba(255, 255, 255, 0.6);
+            }
+            i {
+              box-sizing: content-box;
+              margin-right: 12px;
+            }
+            background-color: @light;
+          }
+          .ant-menu-item-selected {
+            > a {
+              color: #fff;
+            }
+            background-color: @primary-color;
+          }
+        }
+      }
+      .ant-menu-item {
+        > a {
+          color: #fff;
+        }
+        background-color: @dark;
+        margin-bottom: 0;
+      }
+      .ant-menu-item-selected {
+        background-color: @primary-color;
+      }
+      .ant-menu-item,
+      .ant-menu-submenu-title {
+        color: #fff;
+        margin-top: 0px;
+      }
+      .ant-menu-submenu-title {
+        margin-bottom: 0;
+        background-color: @dark;
+      }
+    }
+  }
+}
+
+.ant-menu-submenu-popup {
+  .ant-menu {
+    .ant-menu-item {
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+}

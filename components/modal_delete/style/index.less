@@ -1,0 +1,29 @@
+@color_border: #EF6D64;
+
+.halo-com-modal-delete {
+  background: #FFF5F5;
+  border: 1px solid @color_border;
+  padding: 20px 16px;
+  margin: 0 20px;
+  > span {
+    margin-bottom: 6px;
+  }
+  ul {
+    li{
+      margin-bottom: 4px;
+      color: @color_border;
+    }
+    li > span{
+      color:black;
+    }
+  }
+  > .checkboxDelete {
+    .modal-row.label-row > div:first-child {
+      display: none;
+    }
+  }
+  .anticon-exclamation-circle {
+    color: @color_border;
+    margin-right: 6px;
+  }
+}

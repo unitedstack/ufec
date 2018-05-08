@@ -1,0 +1,219 @@
+.garen-com-main {
+  display: flex;
+  flex: 1;
+  position: relative;
+  background-color: #EDEDED;
+  .margin-wrapper {
+    flex-direction: column;
+    display: flex;
+    flex: 1;
+    padding: 12px;
+    box-sizing: border-box;
+    .info-wrapper {
+      display: flex;
+      width: 100%;
+      min-height: 48px;
+      padding: 10px 20px;
+      border-radius: 2px;
+      box-sizing: border-box;
+      background-color: #fff;
+      margin-bottom: 12px;
+      .title {
+        height: 100%;
+        line-height: 28px;
+        white-space: nowrap;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .content {
+        margin-left: 12px;
+        font-size: 12px;
+        line-height: 28px;
+        color: #6C777A;
+      }
+    }
+    .main-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 14px 20px 20px 20px;
+      border-radius: 2px;
+      box-sizing: border-box;
+      background-color: #fff;
+      overflow: hidden;
+      .submenu-tabs {
+        background-color: #fff;
+        width: 100%;
+        height: 45px;
+        margin-bottom: 12px;
+        min-height: 45px;
+        max-height: 45px;
+        overflow: hidden;
+        .ant-tabs-nav-container {
+          font-size: 12px;
+        }
+      }
+      .operation-list {
+        display: flex;
+        background-color: #fff;
+        width: 100%;
+        height: 32px;
+        min-height: 32px;
+        max-height: 32px;
+        margin-bottom: 12px;
+        .left {
+          display: flex;
+          flex: 1;
+          overflow: hidden;
+          .btn-list {
+            > .ant-btn {
+              margin-right: 4px;
+              > i {
+                vertical-align: 1px;
+              }
+              .anticon-caret-down-right {
+                margin-left: 0;
+                vertical-align: 2px;
+              }
+            }
+            > .ant-select {
+              vertical-align: -1px;
+            }
+          }
+          .ant-select {
+            margin-right: 4px;
+          }
+          .main-operation-checkbox-wrapper {
+            display: inline-block;
+            ul {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+              li {
+                display: inline-block;
+                min-width: 84px;
+                line-height: 32px;
+                background: #f6f6f6;
+                color: #6C777A;
+                text-align: center;
+                font-size: 12px;
+                cursor: pointer;
+                &.checked {
+                  color: #252F3D;
+                  background-color: #B9F1F9;
+                }
+                &:last-child {
+                  min-width: 125px;
+                }
+              }
+            }
+          }
+        }
+        .search-wrapper {
+          width: 180px;
+          height: 32px;
+          button {
+            padding: 0 10px;
+            > i {
+              vertical-align: 1px;
+            }
+          }
+        }
+      }
+      .table-box {
+        flex: 1;
+        background-color: #fff;
+        overflow: auto;
+      }
+    }
+  }
+  .garen-com-table-detail {
+    z-index: 10;
+    position: absolute;
+    background-color: #EDEDED;
+    padding: 12px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transform: translate(100%, 0);
+    transition: transform 0.3s;
+    &.visible {
+      transform: translate(0, 0) !important;
+    }
+    .detail-wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      .header {
+        display: flex;
+        width: 100%;
+        height: 48px;
+        line-height: 18px;
+        border-bottom: 1px solid #EDEDED;
+        padding: 15px 20px;
+        box-sizing: border-box;
+        .left {
+          min-width: 100px;
+          height: 100%;
+          > span {
+            font-size: 12px;
+            color: #252F3D;
+            cursor: pointer;
+            > i {
+              transform: scale(0.8);
+              transform-origin: center top;
+            }
+            &:hover {
+              color: @primary-color;
+            }
+          }
+        }
+        .center {
+          flex: 1;
+          margin-left: -50px;
+          font-size: 12px;
+          text-align: center;
+          line-height: 18px;
+        }
+      }
+      > .content {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        flex: 1;
+        padding: 14px 20px;
+        box-sizing: border-box;
+        overflow: hidden;
+        > .tabs {
+          width: 100%;
+          height: 40px;
+        }
+        .loading-wrapper {
+          display: flex;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          align-items: flex-start;
+          justify-content: center;
+          .ant-spin.ant-spin-spinning {
+            margin-top: 100px;
+          }
+        }
+        .detail-content {
+          flex: 1;
+          overflow: auto;
+        }
+        .detail-no-data {
+          line-height: 80px;
+          text-align: center;
+          font-size: 12px;
+          color: #a3a7ad;
+        }
+      }
+    }
+  }
+}
