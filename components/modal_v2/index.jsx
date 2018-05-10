@@ -1,9 +1,7 @@
-import './style/index.less';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Base from './base';
-import history from 'client/utils/history';
+import history from '../history';
 import event from './event';
 
 function modal(props) {

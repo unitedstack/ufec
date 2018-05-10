@@ -1,8 +1,7 @@
-import './style/index.less';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Base from './base';
-import history from 'client/utils/history';
+import history from '../history';
 function modal(props) {
   if(!window.modalRefList) {
     window.modalRefList = [];

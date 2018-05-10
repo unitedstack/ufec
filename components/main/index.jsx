@@ -1,9 +1,8 @@
-import './style/index.less';
 import React from 'react';
 import { Table, Tabs, Icon, Input } from 'antd';
 const TabPane = Tabs.TabPane;
 const Search = Input.Search;
-import history from 'client/utils/history';
+import history from '../history';
 import Detail from './detail';
 import ButtonList from './button_list';
 import Operation from './operation';

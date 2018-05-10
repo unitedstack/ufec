@@ -7,7 +7,6 @@
  * 4. onAction(field, value, form, updateFields) -- 可选
  */
 
-import './style/index.less';
 import React from 'react';
 
 import { Button, Form, Icon } from 'antd';

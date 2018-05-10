@@ -1,5 +1,3 @@
-import './style/index.less';
-
 import React from 'react';
 import { Button, Dropdown, Menu, Icon } from 'antd';
 

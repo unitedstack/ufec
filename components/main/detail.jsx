@@ -1,7 +1,6 @@
-import './style/index.less';
 import React from 'react';
 import { Icon, Tabs, Spin } from 'antd';
-import history from 'client/utils/history';
+import history from '../history';
 const TabPane = Tabs.TabPane;
 
 class Detail extends React.Component {

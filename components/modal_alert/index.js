@@ -6,7 +6,7 @@
  * @param btnValue - pop的确认按钮的文案 (必填)
  * @param btnType  - pop的确认按钮的type
  */
-import commonModal from 'client/components/modal_v2/index';
+import commonModal from '../modal_v2/index';
 import config from './config.json';
 
 function pop(_props) {
