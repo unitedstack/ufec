@@ -9,7 +9,7 @@
  *
  * history.getPathList() // return pathlist array
  */
-import createBrowserHistory from 'history/createBrowserHistory';
+import {createBrowserHistory} from 'history';
 
 const getPathList = () => window.location.pathname.split('/').filter((m) => !!m && m !== 'dashboard');
 

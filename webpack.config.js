@@ -48,10 +48,47 @@ module.exports = {
   },
 
   externals: {
-    react: 'react',
-    "react-dom": "react-dom",
-    "moment": "moment",
-    "antd": "antd",
-    "react-router-dom": "react-router-dom"
+    react: {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react'
+    },
+    'react-dom': {
+      root: 'ReactDOM',
+      commonjs2: 'react-dom',
+      commonjs: 'react-dom',
+      amd: 'react-dom'
+    },
+    moment: {
+      root: 'moment',
+      commonjs2: 'moment',
+      commonjs: 'moment',
+      amd: 'moment'
+    },
+    antd: {
+      root: 'antd',
+      commonjs2: 'antd',
+      commonjs: 'antd',
+      amd: 'antd'
+    },
+    'react-router-dom': {
+      root: 'ReactRouterDOM',
+      commonjs2: 'react-router-dom',
+      commonjs: 'react-router-dom',
+      amd: 'react-router-dom'
+    },
+    eventemitter2: {
+      root: 'EventEmitter2',
+      commonjs2: 'eventemitter2',
+      commonjs: 'eventemitter2',
+      amd: 'eventemitter2'
+    },
+    history: {
+      root: 'history',
+      commonjs2: 'history',
+      commonjs: 'history',
+      amd: 'history'
+    }
   }
 };

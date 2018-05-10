@@ -3,11 +3,7 @@
  * showTime {bool|object}: 是否要显示时间选择器，或者是 TimePicker 的参数
  */
 import React from 'react';
-import zh_CN from 'antd/lib/locale-provider/zh_CN';
-import en_US from 'antd/lib/locale-provider/en_US';
-import { DatePicker, Form, LocaleProvider } from 'antd';
-
-const lang = GAREN.locale === 'zh-cn' ? zh_CN : en_US;
+import { DatePicker, Form } from 'antd';
 
 // 默认现在只用了 RangePicker，所以暂时只添加 RangePicker 的用法
 const { RangePicker } = DatePicker;
@@ -48,27 +44,25 @@ class DatePickerModal extends React.Component {
     const getFieldDecorator = this.props.form ? this.props.form.getFieldDecorator : null;
 
     return (
-      <LocaleProvider locale={lang}>
-        <div className={props.className}>
-          <FormItem
-            label={props.label}
-            required={props.required}
-            className={className}
-            {...formItemLayout}
-            extra={props.extra}>
-            {
-              decorator && getFieldDecorator(decorator.id, {
-                rules: decorator.rules,
-                initialValue: decorator.initialValue,
-                onChange: decorator.onChange,
-                hidden: state.hide
-              })(
-                <RangePicker format={state.format} showTime={state.showTime} style={{ width: '100%' }} />
-              )
-            }
-          </FormItem>
-        </div>
-      </LocaleProvider>
+      <div className={props.className}>
+        <FormItem
+          label={props.label}
+          required={props.required}
+          className={className}
+          {...formItemLayout}
+          extra={props.extra}>
+          {
+            decorator && getFieldDecorator(decorator.id, {
+              rules: decorator.rules,
+              initialValue: decorator.initialValue,
+              onChange: decorator.onChange,
+              hidden: state.hide
+            })(
+              <RangePicker format={state.format} showTime={state.showTime} style={{ width: '100%' }} />
+            )
+          }
+        </FormItem>
+      </div>
     );
   }
 }
