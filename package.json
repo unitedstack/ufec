@@ -36,7 +36,7 @@
     "webpack": "^3.9.1"
   },
   "files": [
-    "libs/*",
+    "lib/*",
     "style/*",
     "index.js"
   ]
