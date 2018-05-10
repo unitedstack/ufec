@@ -12,7 +12,8 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, './lib'),
-    filename: 'ufec.js'
+    filename: 'ufec.js',
+    libraryTarget: 'umd'
   },
 
   module: {
