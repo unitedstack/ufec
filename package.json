@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf lib/ && webpack",
-    "dev": "rm -rf lib/ && webpack --watch --progress"
+    "dev": "rm -rf lib/ && webpack --watch --progress",
+    "git": "git add ."
   },
   "repository": {
     "type": "git",
@@ -34,8 +35,13 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "pre-commit": "^1.2.2",
     "webpack": "^3.9.1"
   },
+  "pre-commit": [
+    "build",
+    "git"
+  ],
   "files": [
     "lib/*",
     "style/*",
