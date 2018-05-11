@@ -4,7 +4,8 @@
   "description": "ustack front end component",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf lib/ && webpack"
+    "build": "rm -rf lib/ && webpack",
+    "dev": "rm -rf lib/ && webpack --watch --progress"
   },
   "repository": {
     "type": "git",
