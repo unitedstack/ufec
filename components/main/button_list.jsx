@@ -83,4 +83,4 @@ class ButtonList extends React.Component {
   }
 }
 
-module.exports = ButtonList;
+export default ButtonList;

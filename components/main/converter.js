@@ -1,7 +1,7 @@
 /**
  * @func: convert obj value into specific language
  */
-module.exports = {
+export default  {
   getLangValue(lang, obj) {
     if (Object.prototype.toString.call(obj) === '[object Array]') {
       let strs = '';
