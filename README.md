@@ -14,7 +14,7 @@ npm i ufec --save
 Main layout.
 
 ```javascript
-import {Main} from 
+import {Main} from 'ufec';
 ```
 
 ### ModalV2
