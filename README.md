@@ -9,37 +9,41 @@ npm i ufec --save
 
 ## Api
 
-### main
+### Main
 
 Main layout.
 
-### modalV2
+```javascript
+import {Main} from 
+```
+
+### ModalV2
 
 Main modal component.
 
-### modalPlus
+### ModalPlus
 
 Main modal plus.
 
-### modalDelete
+### ModalDelete
 
 Main modal delete.
 
-### modalAlert
+### ModalAlert
 
 Main modal alert.
 
-### sideMenu
+### SideMenu
 
 Side menu component.
 
-### subs `{Object}`
+### Subs `{Object}`
 
 A list of subs components.
 
 ```javascript
-import {subs} from 'ufec';
-const Steps = subs.Steps;
+import {Subs} from 'ufec';
+const Steps = Subs.Steps;
 ```
 
 ### history
