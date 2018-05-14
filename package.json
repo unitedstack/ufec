@@ -1,6 +1,6 @@
 {
   "name": "ufec",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "description": "ustack front end component",
   "main": "index.js",
   "scripts": {
