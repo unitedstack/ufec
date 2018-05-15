@@ -49,3 +49,11 @@ const Steps = Subs.Steps;
 ### history
 
 React-router's history state.
+
+## Style
+
+Remember to import stylesheets.
+
+```less
+@import '~ufec/style/index.less';
+```
