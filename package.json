@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/unitedstack/ufec#readme",
   "dependencies": {
-    "eventemitter2": "^5.0.1",
+    "emitry": "^1.2.0",
     "history": "^4.7.2"
   },
   "devDependencies": {

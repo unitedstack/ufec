@@ -44,7 +44,7 @@ function modal(props) {
   }
 
   function onAfterClose() {
-    event.removeAllListeners();
+    event.off();
     destroy();
   }
 
