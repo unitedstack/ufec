@@ -7,10 +7,11 @@
 
 import React from 'react';
 
-import { Input, Icon, Checkbox, Form } from 'antd';
+import { Select, Icon, Checkbox, Form } from 'antd';
 
 const CheckboxGroup = Checkbox.Group;
 const FormItem = Form.Item;
+const { Option } = Select;
 
 class CheckboxTableModal extends React.Component {
   constructor(props) {
@@ -20,7 +21,9 @@ class CheckboxTableModal extends React.Component {
       initData: props.initData ? JSON.parse(JSON.stringify(props.initData)) : [],
       hide: props.hide,
       allData: [],
-      options: props.options
+      options: props.options,
+      userData: props.userData ? JSON.parse(JSON.stringify(props.userData)) : [],
+      nameType: props.nameType || 'name'
     };
   }
 
@@ -28,16 +31,27 @@ class CheckboxTableModal extends React.Component {
     return {
       hide: nextProps.hide,
       initData: nextProps.initData,
-      options: nextProps.options
+      options: nextProps.options,
+      userData: nextProps.userData,
+      nameType: nextProps.nameType
     };
   }
 
   initialze(state) {
     const inlen = (state.allData.length + state.initData.length) === 1;
+    let userData = state.userData.filter(user => !state.allData.some(init => init.user_name === user.user_id));
     return <div className="checkout-table-content">
       {state.allData.map((d, index) =>
         <div className="content-wrapper" key={index}>
-          <Input type='input' value={d.user_name} onChange={this.onInputChange.bind(this, index)}/>
+          <Select
+            mode='combobox'
+            value={d.user_name}
+            style={{width: '56px', marginRight: '4px'}}
+            dropdownMatchSelectWidth={false}
+            notFoundContent={this.props.__.no_data}
+            onChange={this.onInputChange.bind(this, index)}>
+            { userData.map((d, index) => <Option key={d.id} value={d.id}>{d[state.nameType] || '(' + d.id.substring(0, 8) + ')'}</Option>) }
+          </Select>
           <CheckboxGroup
             options={state.options}
             value={d.competence}
@@ -62,8 +76,8 @@ class CheckboxTableModal extends React.Component {
     </div>;
   }
 
-  onInputChange(index, e) {
-    this.state.allData[index].user_name = e.target.value;
+  onInputChange(index, value) {
+    this.state.allData[index].user_name = value;
 
     this.setState({
       allData: this.state.allData
@@ -138,7 +152,8 @@ class CheckboxTableModal extends React.Component {
     let props = this.props,
       state = this.state,
       title = props.title,
-      className = 'checkout-table-row';
+      className = 'checkout-table-row',
+      hideAddBtn = state.allData && state.initData && state.userData && (state.allData.length >= state.userData.length);
 
     if (this.state.hide) {
       className += ' hide';
@@ -172,7 +187,7 @@ class CheckboxTableModal extends React.Component {
             </div>
             {state.allData && state.initData && this.initialzeData(state)}
             {state.allData && state.initData && this.initialze(state)}
-            <div className="checkout-table-footer">
+            <div className={ hideAddBtn ? 'hide' : 'checkout-table-footer' }>
               <div className="icon" onClick={this.onAddClick}><Icon type="plus" /></div>
               <div onClick={this.onAddClick}>{props.__[props.addValue]}</div>
             </div>
