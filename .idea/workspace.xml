@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a9978683-43d9-4b84-9953-1c74083bbc39" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/components/modal_v2/base.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal_v2/base.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/modal_v2/subs/autoComplete/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal_v2/subs/autoComplete/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/modal_v2/subs/checkbox/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal_v2/subs/checkbox/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/modal_v2/subs/checkboxTable/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal_v2/subs/checkboxTable/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/modal_v2/subs/datePicker/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal_v2/subs/datePicker/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/modal_v2/subs/input/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal_v2/subs/input/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/modal_v2/subs/inputNumber/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal_v2/subs/inputNumber/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/modal_v2/subs/radio/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal_v2/subs/radio/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/modal_v2/subs/select/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal_v2/subs/select/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/modal_v2/subs/slider/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal_v2/subs/slider/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/modal_v2/subs/switch/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal_v2/subs/switch/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/modal_v2/subs/treeSelect/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/modal_v2/subs/treeSelect/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ufec.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ufec.js" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="base.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/components/modal_v2/base.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="316">
+              <caret line="73" column="20" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="20" />
+              <folding>
+                <element signature="e#229#255#0" expanded="true" />
+                <element signature="n#!!block;n#constructor#0;n#ModalBase#0" />
+                <element signature="e#1392#1406#0" />
+                <element signature="e#2503#2606#0" />
+                <element signature="n#!!block;n#componentDidMount#0;n#ModalBase#0" />
+                <element signature="e#2738#2839#0" />
+                <element signature="e#2891#3676#0" />
+                <element signature="e#3125#3541#0" />
+                <element signature="e#3160#3469#0" />
+                <element signature="e#3262#3457#0" />
+                <element signature="e#3293#3445#0" />
+                <element signature="e#3494#3531#0" />
+                <element signature="e#3686#3798#0" />
+                <element signature="e#3826#4251#0" />
+                <element signature="e#3936#4247#0" />
+                <element signature="e#4013#4183#0" />
+                <element signature="e#4087#4173#0" />
+                <element signature="e#4206#4239#0" />
+                <element signature="e#4277#5356#0" />
+                <element signature="e#4398#5344#0" />
+                <element signature="e#4923#5063#0" />
+                <element signature="e#4459#4498#0" />
+                <element signature="e#4571#5119#0" />
+                <element signature="e#4600#4806#0" />
+                <element signature="e#4642#4788#0" />
+                <element signature="e#4676#4768#0" />
+                <element signature="e#4812#5105#0" />
+                <element signature="e#4848#5089#0" />
+                <element signature="e#4882#4978#0" />
+                <element signature="e#5013#5069#0" />
+                <element signature="e#5222#5295#0" />
+                <element signature="e#5387#5441#0" />
+                <element signature="e#5407#5435#0" />
+                <element signature="e#5462#5560#0" />
+                <element signature="e#5492#5554#0" />
+                <element signature="e#5514#5546#0" />
+                <element signature="e#5591#5789#0" />
+                <element signature="e#5611#5639#0" />
+                <element signature="e#5647#5783#0" />
+                <element signature="e#5672#5770#0" />
+                <element signature="e#5816#6430#0" />
+                <element signature="e#5963#6301#0" />
+                <element signature="e#6005#6060#0" />
+                <element signature="e#6192#6278#0" />
+                <element signature="e#6307#6410#0" />
+                <element signature="e#6353#6397#0" />
+                <element signature="e#6453#6597#0" />
+                <element signature="e#6558#6593#0" />
+                <element signature="n#!!block;n#render#0;n#ModalBase#0" />
+                <element signature="e#6801#6828#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>style</find>
+      <find>wrappedComponentRef</find>
+      <find>modalRefList</find>
+      <find>modalRef</find>
+      <find>getFieldDecorator</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/test/index.html" />
+        <option value="$PROJECT_DIR$/test/index.js" />
+        <option value="$PROJECT_DIR$/components/modal_v2/subs/input/index.jsx" />
+        <option value="$PROJECT_DIR$/../../test/node_modules/ufec/lib/ufec.js" />
+        <option value="$PROJECT_DIR$/components/modal_v2/subs/inputNumber/index.jsx" />
+        <option value="$PROJECT_DIR$/components/modal_v2/subs/radio/index.jsx" />
+        <option value="$PROJECT_DIR$/components/modal_v2/subs/select/index.jsx" />
+        <option value="$PROJECT_DIR$/components/modal_v2/subs/switch/index.jsx" />
+        <option value="$PROJECT_DIR$/components/modal_v2/subs/slider/index.jsx" />
+        <option value="$PROJECT_DIR$/components/modal_v2/subs/autoComplete/index.jsx" />
+        <option value="$PROJECT_DIR$/components/modal_v2/subs/checkbox/index.jsx" />
+        <option value="$PROJECT_DIR$/components/modal_v2/subs/checkboxTable/index.jsx" />
+        <option value="$PROJECT_DIR$/components/modal_v2/subs/treeSelect/index.jsx" />
+        <option value="$PROJECT_DIR$/components/modal_v2/subs/datePicker/index.jsx" />
+        <option value="$PROJECT_DIR$/components/modal_v2/subs/alert/index.jsx" />
+        <option value="$PROJECT_DIR$/components/modal_v2/base.jsx" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="9" />
+    <option name="y" value="200" />
+    <option name="width" value="1118" />
+    <option name="height" value="619" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ufec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ufec" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ufec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ufec" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ufec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ufec" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="modal_v2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ufec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ufec" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="modal_v2" type="462c0819:PsiDirectoryNode" />
+              <item name="subs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ufec" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ufec" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="modal_v2" type="462c0819:PsiDirectoryNode" />
+              <item name="subs" type="462c0819:PsiDirectoryNode" />
+              <item name="input" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a9978683-43d9-4b84-9953-1c74083bbc39" name="Default" comment="" />
+      <created>1526974001892</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1526974001892</updated>
+      <workItem from="1526974003225" duration="2310000" />
+      <workItem from="1526976767087" duration="758000" />
+      <workItem from="1527126086236" duration="12204000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="15272000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20625" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16180556" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/test/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/deep_clone.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rollup.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+          <folding>
+            <element signature="n#!!block;n#repository#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="23">
+            <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/history.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/App.jsx">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/ufec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="32" column="22" lean-forward="true" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../test/node_modules/react-dom/cjs/react-dom.development.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="8569" column="31" selection-start-line="8569" selection-start-column="31" selection-end-line="8569" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../test/node_modules/ufec/lib/ufec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2850">
+          <caret line="3007" lean-forward="true" selection-start-line="3007" selection-end-line="3007" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#204#239#0" />
+            <element signature="e#349#457#0" />
+            <element signature="e#596#714#0" />
+            <element signature="n#!!block;n#destroy#0;n#!!block;n#modal#0" />
+            <element signature="n#!!block;n#onAfterClose#0;n#!!block;n#modal#0" />
+            <element signature="e#1054#1133#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/subs/switch/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/subs/slider/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="87" column="43" lean-forward="true" selection-start-line="87" selection-start-column="43" selection-end-line="87" selection-end-column="43" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1883#2372#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/subs/select/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="135" column="43" selection-start-line="135" selection-start-column="43" selection-end-line="135" selection-end-column="43" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/subs/radio/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="47" column="23" selection-start-line="47" selection-end-line="48" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/event.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/subs/treeSelect/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="95" column="26" lean-forward="true" selection-start-line="95" selection-end-line="96" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/subs/datePicker/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/subs/checkboxTable/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="181" column="43" selection-start-line="181" selection-start-column="43" selection-end-line="181" selection-end-column="43" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/subs/checkbox/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="73" column="43" lean-forward="true" selection-start-line="73" selection-start-column="43" selection-end-line="73" selection-end-column="43" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/subs/input/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="132" column="25" selection-start-line="132" selection-end-line="133" />
+          <folding>
+            <element signature="n#!!block;n#constructor#0;n#InputModal#0" />
+            <element signature="e#728#1029#0" />
+            <element signature="e#1069#1183#0" />
+            <element signature="e#1187#1221#0" />
+            <element signature="n#!!block;n#initialize#0;n#InputModal#0" />
+            <element signature="e#1571#3133#0" />
+            <element signature="e#1627#1815#0" />
+            <element signature="e#1855#2001#0" />
+            <element signature="e#2044#2216#0" />
+            <element signature="e#2258#2641#0" />
+            <element signature="e#2281#2507#0" />
+            <element signature="e#2518#2619#0" />
+            <element signature="e#2681#3096#0" />
+            <element signature="e#2726#2895#0" />
+            <element signature="e#2906#3081#0" />
+            <element signature="n#!!block;n#getDerivedStateFromProps#0;n#InputModal#0" />
+            <element signature="e#3208#3320#0" />
+            <element signature="e#3513#3580#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/subs/autoComplete/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="66" column="33" selection-start-line="66" selection-start-column="33" selection-end-line="66" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/subs/alert/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="51" column="23" lean-forward="true" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/subs/alertWithClick/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1154">
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/subs/text/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-702">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/subs/iconLabel/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="692">
+          <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/subs/custom/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="48" column="29" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/subs/inputNumber/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1587">
+          <caret line="70" column="56" lean-forward="true" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/modal_v2/base.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="73" column="20" selection-start-line="73" selection-start-column="9" selection-end-line="73" selection-end-column="20" />
+          <folding>
+            <element signature="e#229#255#0" expanded="true" />
+            <element signature="n#!!block;n#constructor#0;n#ModalBase#0" />
+            <element signature="e#1392#1406#0" />
+            <element signature="e#2503#2606#0" />
+            <element signature="n#!!block;n#componentDidMount#0;n#ModalBase#0" />
+            <element signature="e#2738#2839#0" />
+            <element signature="e#2891#3676#0" />
+            <element signature="e#3125#3541#0" />
+            <element signature="e#3160#3469#0" />
+            <element signature="e#3262#3457#0" />
+            <element signature="e#3293#3445#0" />
+            <element signature="e#3494#3531#0" />
+            <element signature="e#3686#3798#0" />
+            <element signature="e#3826#4251#0" />
+            <element signature="e#3936#4247#0" />
+            <element signature="e#4013#4183#0" />
+            <element signature="e#4087#4173#0" />
+            <element signature="e#4206#4239#0" />
+            <element signature="e#4277#5356#0" />
+            <element signature="e#4398#5344#0" />
+            <element signature="e#4923#5063#0" />
+            <element signature="e#4459#4498#0" />
+            <element signature="e#4571#5119#0" />
+            <element signature="e#4600#4806#0" />
+            <element signature="e#4642#4788#0" />
+            <element signature="e#4676#4768#0" />
+            <element signature="e#4812#5105#0" />
+            <element signature="e#4848#5089#0" />
+            <element signature="e#4882#4978#0" />
+            <element signature="e#5013#5069#0" />
+            <element signature="e#5222#5295#0" />
+            <element signature="e#5387#5441#0" />
+            <element signature="e#5407#5435#0" />
+            <element signature="e#5462#5560#0" />
+            <element signature="e#5492#5554#0" />
+            <element signature="e#5514#5546#0" />
+            <element signature="e#5591#5789#0" />
+            <element signature="e#5611#5639#0" />
+            <element signature="e#5647#5783#0" />
+            <element signature="e#5672#5770#0" />
+            <element signature="e#5816#6430#0" />
+            <element signature="e#5963#6301#0" />
+            <element signature="e#6005#6060#0" />
+            <element signature="e#6192#6278#0" />
+            <element signature="e#6307#6410#0" />
+            <element signature="e#6353#6397#0" />
+            <element signature="e#6453#6597#0" />
+            <element signature="e#6558#6593#0" />
+            <element signature="n#!!block;n#render#0;n#ModalBase#0" />
+            <element signature="e#6801#6828#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

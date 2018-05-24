@@ -73,6 +73,8 @@ class Slide extends React.Component {
 
     const getFieldDecorator = this.props.form ? this.props.form.getFieldDecorator : null;
 
+    const isRequired = decorator && decorator.rules && decorator.rules.some(rule => rule.required);
+
     return <FormItem
       label={props.label}
       className={className}
@@ -83,7 +85,7 @@ class Slide extends React.Component {
           rules: decorator.rules,
           initialValue: decorator.initialValue,
           onChange: decorator.onChange,
-          hidden: state.hide
+          hidden: state.hide || !isRequired
         })(
           <div>
             <Slider

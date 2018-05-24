@@ -53,6 +53,8 @@ class AutoCompleteModal extends React.Component {
 
     const getFieldDecorator = this.props.form ? this.props.form.getFieldDecorator : null;
 
+    const isRequired = decorator && decorator.rules && decorator.rules.some(rule => rule.required);
+
     return <FormItem
       className={className}
       label={props.label}
@@ -62,7 +64,7 @@ class AutoCompleteModal extends React.Component {
           rules: decorator.rules,
           initialValue: decorator.initialValue,
           onChange: decorator.onChange,
-          hidden: state.hide
+          hidden: state.hide || !isRequired
         })(
           <AutoComplete
             dataSource={dataSource}
