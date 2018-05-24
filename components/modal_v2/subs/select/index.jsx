@@ -121,6 +121,8 @@ class SelectModal extends React.Component {
 
     const getFieldDecorator = this.props.form ? this.props.form.getFieldDecorator : null;
 
+    const isRequired = decorator && decorator.rules && decorator.rules.some(rule => rule.required);
+
     return <FormItem
       label={props.label}
       className={className}
@@ -131,7 +133,7 @@ class SelectModal extends React.Component {
           rules: decorator.rules,
           initialValue: decorator.initialValue,
           onChange: decorator.onChange,
-          hidden: state.hide
+          hidden: state.hide || !isRequired
         })(this.initialize(props, state))
       }
     </FormItem>;
