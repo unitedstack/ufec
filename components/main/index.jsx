@@ -213,8 +213,6 @@ class Modal extends React.Component {
         hideOnSinglePage: true,
         pageSize: table.limit,
         showQuickJumper: true,
-        showSizeChanger: table.showSizeChanger || false,
-        pageSizeOptions: table.pageSizeOptions,
         total: table.total,
         onChange: (page, pageSize) => {
           this.onAction('pagination', 'click', {
