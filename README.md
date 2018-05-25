@@ -7,6 +7,16 @@ ustack front end component
 npm i ufec --save
 ```
 
+## External
+This repo based on some libraries:
+
+* React
+* React-dom
+* React-dom-router
+* antd
+
+So you should make sure these repo is in your context.
+
 ## Api
 
 ### Main
