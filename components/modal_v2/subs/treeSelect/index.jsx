@@ -76,6 +76,12 @@ class TreeSelectModal extends React.Component {
     }
   }
 
+  valueIsEmpty(decorator) {
+
+    let value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
+    return value === undefined || value === ''
+  }
+
   render() {
     const decorator = this.props.decorator;
     let props = this.props,
@@ -105,7 +111,7 @@ class TreeSelectModal extends React.Component {
           rules: decorator.rules,
           initialValue: decorator.initialValue,
           onChange: decorator.onChange,
-          hidden: state.hide || !isRequired
+          hidden: state.hide || (!isRequired && this.valueIsEmpty(decorator))
         })(
           <TreeSelect
             showSearch

@@ -43,6 +43,12 @@ class SelectModal extends React.Component {
     }, () => this.props.onAction(this.props.field, this.state));
   }
 
+  valueIsEmpty(decorator) {
+
+    let value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
+    return value === undefined || value === ''
+  }
+
   static getDerivedStateFromProps(nextProps, prevState) {
     return {
       disabled: nextProps.disabled,
@@ -133,7 +139,7 @@ class SelectModal extends React.Component {
           rules: decorator.rules,
           initialValue: decorator.initialValue,
           onChange: decorator.onChange,
-          hidden: state.hide || !isRequired
+          hidden: state.hide || (!isRequired && this.valueIsEmpty(decorator))
         })(this.initialize(props, state))
       }
     </FormItem>;

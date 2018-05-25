@@ -117,6 +117,12 @@ class InputModal extends React.Component {
     };
   }
 
+  valueIsEmpty(decorator) {
+
+    let value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
+    return value === undefined || value === ''
+  }
+
   render() {
     let props = this.props,
       state = this.state,
@@ -146,7 +152,7 @@ class InputModal extends React.Component {
             rules: decorator.rules,
             initialValue: decorator.initialValue,
             onChange: decorator.onChange,
-            hidden: state.hide || !isRequired
+            hidden: state.hide && (!isRequired && this.valueIsEmpty(decorator))
           })(this.initialize(props))
         }
       </FormItem>
