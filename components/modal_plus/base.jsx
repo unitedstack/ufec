@@ -36,8 +36,17 @@ class ModalBase extends React.Component {
     super(props);
     this.__ = props.__;
 
+    let config =  deepClone(props.config);
+    this.isNotRequired = [];
+    config.fields.map(field => {
+      if (field.decorator && field.decorator.rules) {
+        let isRequired = field.decorator.rules.some(rule => rule.required);
+        !isRequired ? this.isNotRequired.push(field.decorator.id) : null;
+      }
+    });
+
     this.state = {
-      config: deepClone(props.config),
+      config: config,
       disabled: false,
       loading: false,
       error: false,
@@ -149,6 +158,12 @@ class ModalBase extends React.Component {
     e.preventDefault();
     props.form.validateFields((err, values) => {
       if (!err) {
+        let isNotRequired = props.form.getFieldsValue(this.isNotRequired);
+        Object.keys(isNotRequired).forEach(key => {
+          if (isNotRequired[key] !== undefined && isNotRequired[key] !== '') {
+            values[key] = isNotRequired[key];
+          }
+        });
         const trueSubmit = () => {
           this.setState({
             loading: true
