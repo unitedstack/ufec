@@ -11,10 +11,12 @@
  */
 import {createBrowserHistory} from 'history';
 
-const getPathList = () => window.location.pathname.split('/').filter((m) => !!m && m !== 'dashboard');
+const currentUfecApp = window.CURRENT_UFEC_APP || 'dashboard';
+
+const getPathList = () => window.location.pathname.split('/').filter((m) => !!m && m !== currentUfecApp);
 
 const HISTORY = createBrowserHistory({
-  basename: '/dashboard'
+  basename: `/${currentUfecApp}`
 });
 // 注意！这里的pathList是将basename忽略的！！为了跟忽略basename的link和route统一
 HISTORY.getPathList = getPathList;
