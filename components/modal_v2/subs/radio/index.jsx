@@ -32,6 +32,14 @@ class RadioModal extends React.Component {
     return value === undefined || value === ''
   }
 
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+      disabled: nextProps.disabled,
+      hide: nextProps.hide,
+      data: nextProps.data
+    };
+  }
+
   render() {
     let state = this.state,
       props = this.props,
