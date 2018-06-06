@@ -51,7 +51,7 @@ class Tip extends React.Component {
         <Alert type={type}
           message={msg}
           description={props.__[props.description]}
-          showIcon />
+          showIcon={props.showIcon === undefined ? true : props.showIcon} />
       </div>
     );
   }
