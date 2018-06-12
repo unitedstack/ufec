@@ -208,8 +208,11 @@ class Modal extends React.Component {
       detail = table.detail,
       search = _config.search,
       operations = _config.operations,
+      showPage = {
+        withPage: true,
+        ...table.showPage
+      },
       pagination = {
-        ...table.pagination,
         hideOnSinglePage: true,
         pageSize: table.limit,
         showQuickJumper: true,
@@ -219,8 +222,12 @@ class Modal extends React.Component {
             page: page,
             pageSize: pageSize
           });
-        }
+        },
+        ...table.pagination
       };
+
+    // 判断是否显示页数
+    let tableClass = showPage.withPage ? 'table-box' : 'table-box without-page';
 
     // 当前匹配的模块
     const selectedRowKeys = this.state.selectedRowKeys;
@@ -288,7 +295,7 @@ class Modal extends React.Component {
                 }
               </div> : null
             }
-            <div className="table-box">
+            <div className={tableClass}>
               {
                 table ? <Table
                   loading={spinProps}
