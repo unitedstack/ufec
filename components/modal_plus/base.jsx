@@ -35,10 +35,10 @@ class ModalBase extends React.Component {
   constructor(props) {
     super(props);
     this.__ = props.__;
-
+    const config = deepClone(props.config);
     this.state = {
-      config: deepClone(props.config),
-      disabled: props.config.btn.disabled === undefined ? false : props.config.btn.disabled,
+      config: config,
+      disabled: config.btn.disabled === undefined ? false : config.btn.disabled,
       loading: false,
       error: false,
       className: 'component_modal_plus'
