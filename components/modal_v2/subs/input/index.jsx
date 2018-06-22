@@ -152,7 +152,7 @@ class InputModal extends React.Component {
             rules: decorator.rules,
             initialValue: decorator.initialValue,
             onChange: decorator.onChange,
-            hidden: state.hide && (!isRequired && this.valueIsEmpty(decorator))
+            hidden: state.hide || (!isRequired && this.valueIsEmpty(decorator))
           })(this.initialize(props))
         }
       </FormItem>
