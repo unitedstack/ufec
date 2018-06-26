@@ -14,7 +14,7 @@ class ModalBase extends React.Component {
       tip: props.tip,
       tipType: 'warning',
       visible: true,
-      errorHide: true,
+      hide: true,
       options: props.options,
       data: props.data,
       defaultValue: props.defaultValue,
@@ -41,8 +41,8 @@ class ModalBase extends React.Component {
         });
       } else {
         this.setState({
-          errorMessage: msg,
-          errorHide: false
+          message: msg,
+          hide: false
         });
         this.setState({
           loading: false
@@ -152,6 +152,9 @@ class ModalBase extends React.Component {
           </div>
           <div className={props.hasAlert ? '' : 'hide'}>
             <p>{state.alertTip}</p>
+          </div>
+          <div className={'modal-error-message' + (state.hide ? ' hide' : '')}>
+            <Alert __={__} message={state.message} type="error" showIcon />
           </div>
         </div>
         {props.children}
