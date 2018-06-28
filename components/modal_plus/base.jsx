@@ -49,10 +49,15 @@ class ModalBase extends React.Component {
 
   initialize() {
     let config = this.state.config;
+    let contents = this.props.contents;
     return config.fields.map((m) => {
       m.label = this.__[m.field] || m.field;
       m.__ = this.__;
       m.form = this.props.form;
+
+      if (m.type === 'steps') {
+        m.onCancel = this.onCancel;
+      }
 
       let subComs = {
         'input': Input,
@@ -75,7 +80,7 @@ class ModalBase extends React.Component {
         'treeSelect': TreeSelect
       };
 
-      let Sub = subComs[m.type];
+      let Sub = subComs[m.type] || (contents && contents[m.type]);
       return Sub ? <Sub key={m.field} onAction={this.onAction} {...m}/> : null;
     });
   }
@@ -187,7 +192,7 @@ class ModalBase extends React.Component {
         this.props.onAfterClose();
       }, 200);
     });
-  }
+  };
 
   render() {
     let props = this.props,
@@ -208,7 +213,7 @@ class ModalBase extends React.Component {
             <Form onSubmit={this.handleSubmit}>
               {this.initialize()}
               <Alert __={__} message={state.message} hide={!state.error} tip_type="error" />
-              <div className="btn-wrapper">
+              <div className="btn-wrapper" style={{display: (props.config.btn && props.config.btn.hide) ? 'none' : 'block'}}>
                 <Button className="cancel-button" type="dashed" ref="btn" onClick={this.onCancel}>{__.cancel}</Button>
                 <Button className="create-button" loading={state.loading} type={props.config.btn.type} htmlType="submit">{__[props.config.btn.value]}</Button>
               </div>
