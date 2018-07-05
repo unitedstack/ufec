@@ -1,3 +1,7 @@
+[![Travis](https://img.shields.io/travis/unitedstack/ufec.svg)](https://travis-ci.org/unitedstack/ufec)
+[![npm](https://img.shields.io/npm/v/ufec.svg)](https://www.npmjs.com/package/ufec)
+[![npm](https://img.shields.io/npm/l/ufec.svg)](https://www.npmjs.com/package/ufec)
+
 # ufec
 ustack front end component
 
