@@ -15,7 +15,7 @@ class DatePickerModal extends React.Component {
 
     this.state = {
       hide: props.hide,
-      disabled: props.disabled,
+      // disabled: props.disabled,
       format: props.format || 'YYYY-MM-DD',
       showTime: props.showTime || false
     };
@@ -29,9 +29,9 @@ class DatePickerModal extends React.Component {
   }
 
   render() {
-    let props = this.props,
-      state = this.state,
-      className = '';
+    const props = this.props,
+      state = this.state;
+    let className = '';
 
     className += state.hide ? ' hide' : '';
 
@@ -52,16 +52,15 @@ class DatePickerModal extends React.Component {
           required={props.required}
           className={className}
           {...formItemLayout}
-          extra={props.extra}>
+          extra={props.extra}
+        >
           {
             decorator && getFieldDecorator(decorator.id, {
               rules: decorator.rules,
               initialValue: decorator.initialValue,
               onChange: decorator.onChange,
               hidden: state.hide || !isRequired
-            })(
-              <RangePicker format={state.format} showTime={state.showTime} style={{ width: '100%' }} />
-            )
+            })(<RangePicker format={state.format} showTime={state.showTime} style={{ width: '100%' }} />)
           }
         </FormItem>
       </div>

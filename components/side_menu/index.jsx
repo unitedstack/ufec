@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, Icon } from 'antd';
+
 const SubMenu = Menu.SubMenu;
 
 class SideMenu extends React.Component {
@@ -18,7 +19,7 @@ class SideMenu extends React.Component {
   }
 
   getIconByName(name) {
-    switch(name) {
+    switch (name) {
       case 'block-storage':
         return 'storage-volume';
       case 'alert_management':
@@ -42,24 +43,22 @@ class SideMenu extends React.Component {
             defaultOpenKeys={items.defaultOpenKeys}
             mode="inline"
             theme="dark"
-            style={this.state.collapsed ? {width: 80} : {width: 200}}
+            style={this.state.collapsed ? { width: 80 } : { width: 200 }}
             // 禁用Menu的点选功能，完全通过history.listen来操控selectedKeys
             selectable={false}
             inlineCollapsed={this.state.collapsed}
           >
             {
-              items.modules.map(module => {
-                return !module.title ? module.items.map(item => <Menu.Item key={item}>
-                  <Link to={`/${item}`}><Icon type={this.getIconByName(item)} /><span>{__[item]}</span></Link>
-                </Menu.Item>) :
-                  <SubMenu key={module.title} title={<span><Icon type={this.getIconByName(module.title)} /><span>{__[module.title]}</span></span>}>
-                    {
-                      module.items.map(item => <Menu.Item key={item}>
-                        <Link to={`/${item}`}><Icon type="circle" /><span>{__[item]}</span></Link>
-                      </Menu.Item>)
-                    }
-                  </SubMenu>;
-              })
+              items.modules.map(module => (!module.title ? module.items.map(item => (<Menu.Item key={item}>
+                <Link to={`/${item}`}><Icon type={this.getIconByName(item)} /><span>{__[item]}</span></Link>
+              </Menu.Item>)) :
+              <SubMenu key={module.title} title={<span><Icon type={this.getIconByName(module.title)} /><span>{__[module.title]}</span></span>}>
+                {
+                  module.items.map(item => (<Menu.Item key={item}>
+                    <Link to={`/${item}`}><Icon type="circle" /><span>{__[item]}</span></Link>
+                  </Menu.Item>))
+                }
+              </SubMenu>))
             }
           </Menu>
         </div>

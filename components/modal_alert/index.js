@@ -18,10 +18,10 @@ function pop(_props) {
   config.fields[1].tip_type = _props.tip_type || 'warning';
   config.btn.value = _props.btnValue;
   config.btn.type = _props.btnType || 'danger';
-  let props = {
+  const props = {
     __: _props.__,
-    config: config,
-    onConfirm: function(refs, cb) {
+    config,
+    onConfirm(refs, cb) {
       _props.onAction && _props.onAction(cb);
     }
   };

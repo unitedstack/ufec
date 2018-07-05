@@ -5,13 +5,12 @@ import history from '../history';
 import event from './event';
 
 function modal(props) {
-
-  if(!window.modalRefList) {
+  if (!window.modalRefList) {
     window.modalRefList = [];
   }
 
-  let doc = document,
-    root = doc.getElementById('modal-container'),
+  const doc = document;
+  let root = doc.getElementById('modal-container'),
     container = null;
 
   if (!root) {
@@ -26,7 +25,7 @@ function modal(props) {
 
   const modalNums = root.childNodes.length;
 
-  if(modalNums > 1) {
+  if (modalNums > 1) {
     const prevModal = modalRefList[modalNums - 2].current;
     prevModal.setState({
       visible: false
@@ -48,7 +47,7 @@ function modal(props) {
     destroy();
   }
 
-  let _props = {
+  const _props = {
     ...props,
     root,
     childNodes: root.childNodes,
@@ -58,7 +57,7 @@ function modal(props) {
   modalRefList.push(React.createRef());
 
   // https://github.com/react-component/form#note-use-wrappedcomponentref-instead-of-withref-after-rc-form140
-  ReactDOM.render(<Base wrappedComponentRef={modalRefList[modalRefList.length - 1]} {..._props}/>, container);
+  ReactDOM.render(<Base wrappedComponentRef={modalRefList[modalRefList.length - 1]} {..._props} />, container);
 }
 
 export default modal;

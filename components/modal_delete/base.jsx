@@ -1,11 +1,10 @@
 import React from 'react';
-import {Modal, Button, Alert, Checkbox, Icon} from 'antd';
+import { Modal, Button, Alert, Checkbox, Icon } from 'antd';
 import ReactDOM from 'react-dom';
 
 const CheckboxGroup = Checkbox.Group;
 
 class ModalBase extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -53,7 +52,7 @@ class ModalBase extends React.Component {
 
   onChange(value) {
     this.setState({
-      value: value
+      value
     });
   }
 
@@ -72,7 +71,7 @@ class ModalBase extends React.Component {
   dealChainPop(cb) {
     const refList = window.modalRefList;
     const len = refList.length;
-    if(refList && refList.length > 1) {
+    if (refList && refList.length > 1) {
       refList[len - 2].current.setState({
         loading: false,
         visible: true
@@ -101,7 +100,7 @@ class ModalBase extends React.Component {
   }
 
   render() {
-    let props = this.props,
+    const props = this.props,
       state = this.state,
       __ = props.__,
       action = __[props.action],
@@ -110,7 +109,7 @@ class ModalBase extends React.Component {
       cancel = __.cancel,
       content = __.msg_delete.replace('{0}', action).replace('{1}', type).replace('{2}', num);
 
-    let _props = Object.assign({}, props, {
+    const _props = Object.assign({}, props, {
       title: action + type
     });
 
@@ -118,7 +117,8 @@ class ModalBase extends React.Component {
     const container = div[div.length - 1];
 
     return (
-      <Modal ref={ this.modalRef }
+      <Modal
+        ref={this.modalRef}
         title={_props.title}
         visible={state.visible}
         width={540}
@@ -128,32 +128,34 @@ class ModalBase extends React.Component {
         footer={[
           <Button key="cancel" type="dashed" onClick={this.onCancel}>{cancel}</Button>,
           <Button key="confirm" type="danger" disabled={state.disabled} loading={state.loading} onClick={this.onDelete}>{__.delete}</Button>
-        ]}>
+        ]}
+      >
         <div className="modal-bd halo-com-modal-delete">
           <Icon type="exclamation-circle" />
-          <span dangerouslySetInnerHTML={{__html: content}}></span>
+          <span dangerouslySetInnerHTML={{ __html: content }} />
           <ul className="data-list">
             {
-              props.data.map((item) =>
-                <li key={item.id || item.name}>
-                  <span>{item[state.nameType] || '(' + item.id.substr(0, 8) + ')'}</span>
-                </li>
-              )
+              props.data.map(item =>
+                (<li key={item.id || item.name}>
+                  <span>{item[state.nameType] || `(${item.id.substr(0, 8)})`}</span>
+                </li>))
             }
           </ul>
-          <div className={'modal-row tip-row' + (state.tip ? '' : ' hide')}>
-            <Alert type={state.tipType} content={state.tip} showIcon={true} width={462}/>
+          <div className={`modal-row tip-row${state.tip ? '' : ' hide'}`}>
+            <Alert type={state.tipType} content={state.tip} showIcon width={462} />
           </div>
           <div className={props.hasCheckbox ? '' : 'hide'}>
-            <CheckboxGroup value={state.value}
+            <CheckboxGroup
+              value={state.value}
               options={state.options}
               defaultValue={state.defaultValue}
-              onChange={this.onChange.bind(this)} />
+              onChange={this.onChange.bind(this)}
+            />
           </div>
           <div className={props.hasAlert ? '' : 'hide'}>
             <p>{state.alertTip}</p>
           </div>
-          <div className={'modal-error-message' + (state.hide ? ' hide' : '')}>
+          <div className={`modal-error-message${state.hide ? ' hide' : ''}`}>
             <Alert __={__} message={state.message} type="error" showIcon />
           </div>
         </div>

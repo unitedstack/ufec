@@ -38,9 +38,8 @@ class CheckboxModal extends React.Component {
   }
 
   valueIsEmpty(decorator) {
-
-    let value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
-    return value === undefined || value === ''
+    const value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
+    return value === undefined || value === '';
   }
 
   render() {
@@ -67,22 +66,21 @@ class CheckboxModal extends React.Component {
 
     const isRequired = decorator && decorator.rules && decorator.rules.some(rule => rule.required);
 
-    return <FormItem
+    return (<FormItem
       className={className}
       label={props.label}
       {...formItemLayout}
-      extra={props.extra}>
+      extra={props.extra}
+    >
       {
         decorator && getFieldDecorator(decorator.id, {
           rules: decorator.rules,
           initialValue: decorator.initialValue,
           onChange: decorator.onChange,
           hidden: state.hide || (!isRequired && this.valueIsEmpty(decorator))
-        })(
-          <CheckboxGroup options={state.options} />
-        )
+        })(<CheckboxGroup options={state.options} />)
       }
-    </FormItem>;
+    </FormItem>);
   }
 }
 

@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Base from './base';
 import history from '../history';
+
 function modal(props) {
-  if(!window.modalRefList) {
+  if (!window.modalRefList) {
     window.modalRefList = [];
   }
-  let doc = document,
-    root = doc.getElementById('modal-container'),
+  const doc = document;
+  let root = doc.getElementById('modal-container'),
     container = null;
   if (!root) {
     root = doc.createElement('div');
@@ -17,7 +18,7 @@ function modal(props) {
   container = doc.createElement('div');
   root.appendChild(container);
   const modalNums = root.childNodes.length;
-  if(modalNums > 1) {
+  if (modalNums > 1) {
     const prevModal = modalRefList[modalNums - 2].current;
     prevModal.setState({
       visible: false
@@ -34,13 +35,13 @@ function modal(props) {
   function onAfterClose() {
     destroy();
   }
-  let _props = {
+  const _props = {
     ...props,
     root,
     childNodes: root.childNodes,
     onAfterClose
   };
   modalRefList.push(React.createRef());
-  ReactDOM.render(<Base ref={modalRefList[modalRefList.length - 1]} {..._props}/>, container);
+  ReactDOM.render(<Base ref={modalRefList[modalRefList.length - 1]} {..._props} />, container);
 }
 export default modal;

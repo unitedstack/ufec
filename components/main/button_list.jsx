@@ -4,19 +4,17 @@ import { Button, Dropdown, Menu, Icon } from 'antd';
 class ButtonList extends React.Component {
   constructor(props) {
     super(props);
+
+    this.formatData(this.props.btns);
   }
 
-  state = {
-    btns: this.formatData(this.props.btns)
-  };
-
   formatData(btns) {
-    let formatedBtns = {};
+    const formatedBtns = {};
 
     btns.forEach((btn) => {
       if (btn.dropdown) {
         btn.dropdown.forEach((item) => {
-          if(!item.type) {
+          if (!item.type) {
             formatedBtns[item.key] = item;
           }
         });
@@ -29,13 +27,13 @@ class ButtonList extends React.Component {
 
   onClickDropdownList({ item, key, keyPath }) {
     this.props.onAction('btnList', 'click', {
-      key: key
+      key
     });
   }
 
   onClickBtnList(key) {
     this.props.onAction('btnList', 'click', {
-      key: key
+      key
     });
   }
 
@@ -48,34 +46,32 @@ class ButtonList extends React.Component {
       <div className="btn-list">
         {
           btns.map((btn) => {
-            if(btn.dropdown) {
+            if (btn.dropdown) {
               const menu = (
                 <Menu onClick={this.onClickDropdownList.bind(this)}>
                   {
-                    btn.dropdown.map((drop, i) => {
-                      return drop.type && drop.type === 'divider' ?
-                        <Menu.Divider key={i} /> :
-                        <Menu.Item key={drop.key} disabled={tableLoading || drop.disabled}>{drop.value}</Menu.Item>;
-                    })
+                    btn.dropdown.map((drop, i) => (drop.type && drop.type === 'divider' ?
+                      <Menu.Divider key={i} /> :
+                      <Menu.Item key={drop.key} disabled={tableLoading || drop.disabled}>{drop.value}</Menu.Item>))
                   }
                 </Menu>
               );
-              return <Dropdown key={btn.key} overlay={menu} trigger={['click']}  disabled={btn.disabled}>
+              return (<Dropdown key={btn.key} overlay={menu} trigger={['click']} disabled={btn.disabled}>
                 <Button type={btn.type}>
                   <Icon type="more" />{btn.value} <Icon type="caret-down-right" />
                 </Button>
-              </Dropdown>;
-            } else {
-              return <Button
-                onClick={this.onClickBtnList.bind(this, btn.key)}
-                key={btn.key}
-                type={btn.type}
-                icon={btn.icon ? btn.icon : null}
-                loading={btn.key === 'refresh' ? tableLoading : false}
-                disabled={tableLoading || btn.disabled}>
-                {btn.value}
-              </Button>;
+              </Dropdown>);
             }
+            return (<Button
+              onClick={this.onClickBtnList.bind(this, btn.key)}
+              key={btn.key}
+              type={btn.type}
+              icon={btn.icon ? btn.icon : null}
+              loading={btn.key === 'refresh' ? tableLoading : false}
+              disabled={tableLoading || btn.disabled}
+            >
+              {btn.value}
+            </Button>);
           })
         }
       </div>

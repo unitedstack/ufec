@@ -1,4 +1,4 @@
-/**input/textarea/searchInput/groupInput
+/** input/textarea/searchInput/groupInput
  *
  * required: bool 是否必需
  * hide: bool 隐藏
@@ -24,6 +24,7 @@
  */
 import React from 'react';
 import { Input, Select, AutoComplete, Form, Icon } from 'antd';
+
 const FormItem = Form.Item;
 
 const { TextArea, Search } = Input;
@@ -38,8 +39,8 @@ class InputModal extends React.Component {
     this.state = {
       hide: props.hide,
       disabled: props.disabled,
-      inputType: props.inputType || 'text',
-      groupInput: props.defaultValue || (props.data && props.data[0]),
+      // inputType: props.inputType || 'text',
+      // groupInput: props.defaultValue || (props.data && props.data[0]),
       placeholder: props.placeholder && (props.__[props.placeholder] || props.placeholder),
       passwordType: 'password'
     };
@@ -51,10 +52,10 @@ class InputModal extends React.Component {
     });
   }
 
-  //input: this.inputRef.input.value
-  //search: this.inputRef.input.input.value
-  //search.enterButton: 可选值(true, false(默认), 任意字符串(比如Search))
-  //size: 指高度
+  // input: this.inputRef.input.value
+  // search: this.inputRef.input.input.value
+  // search.enterButton: 可选值(true, false(默认), 任意字符串(比如Search))
+  // size: 指高度
 
   initialize(props) {
     const state = this.state;
@@ -62,28 +63,34 @@ class InputModal extends React.Component {
       __ = props.__,
       addonAfter = props.addonAfter && __[props.addonAfter] ? __[props.addonAfter] : props.addonAfter;
 
-    switch(props.type) {
+    switch (props.type) {
       case 'input':
-        return <Input style={styleWidth}
+        return (<Input
+          style={styleWidth}
           addonAfter={addonAfter}
           placeholder={state.placeholder}
           disabled={this.state.disabled}
-          type={ props.inputType || 'text'}/>;
+          type={props.inputType || 'text'}
+        />);
       case 'textarea':
-        return <TextArea style={styleWidth}
+        return (<TextArea
+          style={styleWidth}
           rows={props.rows || 4}
           placeholder={state.placeholder}
-          disabled={this.state.disabled}/>;
+          disabled={this.state.disabled}
+        />);
       case 'searchInput':
-        return <Search
+        return (<Search
           style={styleWidth}
           disabled={this.state.disabled}
           placeholder={state.placeholder}
-          enterButton={props.enterButton || false}/>;
+          enterButton={props.enterButton || false}
+        />);
       case 'groupInput':
-        return <InputGroup>
+        return (<InputGroup>
           <Select
-            getPopupContainer={trigger => trigger.parentNode}>
+            getPopupContainer={trigger => trigger.parentNode}
+          >
             {
               props.data && props.data.map((dt, index) => <Option key={index} value={dt}>{__[dt]}</Option>)
             }
@@ -92,18 +99,19 @@ class InputModal extends React.Component {
             style={styleWidth}
             placeholder={state.placeholder}
           />
-        </InputGroup>;
+        </InputGroup>);
       case 'password':
-        return <div className="password-wrapper">
+        return (<div className="password-wrapper">
           <Input
             style={styleWidth}
             placeholder={state.placeholder}
             disabled={this.state.disabled}
-            type={this.state.passwordType}/>
-          <span className={'eye-wrapper' + (state.passwordType === 'password' ? '' : ' active')}>
+            type={this.state.passwordType}
+          />
+          <span className={`eye-wrapper${state.passwordType === 'password' ? '' : ' active'}`}>
             <Icon onClick={this.togglePasswordVisiable} type="eye" />
           </span>
-        </div>;
+        </div>);
       default:
         break;
     }
@@ -118,15 +126,14 @@ class InputModal extends React.Component {
   }
 
   valueIsEmpty(decorator) {
-
-    let value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
-    return value === undefined || value === ''
+    const value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
+    return value === undefined || value === '';
   }
 
   render() {
-    let props = this.props,
-      state = this.state,
-      className = '';
+    const props = this.props,
+      state = this.state;
+    let className = '';
 
     className += state.hide ? ' hide' : '';
 
@@ -140,13 +147,14 @@ class InputModal extends React.Component {
 
     const getFieldDecorator = this.props.form ? this.props.form.getFieldDecorator : null;
 
-    return <div className={props.className}>
+    return (<div className={props.className}>
       <FormItem
         label={props.label}
         required={props.required}
         className={className}
         {...formItemLayout}
-        extra={props.extra}>
+        extra={props.extra}
+      >
         {
           decorator && getFieldDecorator(decorator.id, {
             rules: decorator.rules,
@@ -156,7 +164,7 @@ class InputModal extends React.Component {
           })(this.initialize(props))
         }
       </FormItem>
-    </div>;
+    </div>);
   }
 }
 

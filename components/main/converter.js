@@ -1,7 +1,7 @@
 /**
  * @func: convert obj value into specific language
  */
-export default  {
+export default {
   getLangValue(lang, obj) {
     if (Object.prototype.toString.call(obj) === '[object Array]') {
       let strs = '';
@@ -10,13 +10,12 @@ export default  {
       });
 
       return strs;
-    } else {
-      return lang[obj] || obj;
     }
+    return lang[obj] || obj;
   },
 
   convertLang(lang, config) {
-    if(config.info) {
+    if (config.info) {
       config.info.title = this.getLangValue(lang, config.info.title);
       config.info.content = this.getLangValue(lang, config.info.content);
     }
@@ -34,7 +33,7 @@ export default  {
           btn.value = this.getLangValue(lang, btn.value);
           if (btn.dropdown) {
             btn.dropdown.forEach((item) => {
-              if(!item.type) {
+              if (!item.type) {
                 item.value = this.getLangValue(lang, item.value);
               }
             });

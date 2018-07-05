@@ -1,4 +1,4 @@
-/**提示框
+/** 提示框
  *
  * hide: bool 隐藏
  * message: string alert的主要信息
@@ -15,8 +15,8 @@ class Tip extends React.Component {
 
     this.state = {
       hide: props.hide,
-      message: props.message || '',
-      description: props.description || ''
+      // message: props.message || '',
+      // description: props.description || ''
     };
   }
 
@@ -27,17 +27,17 @@ class Tip extends React.Component {
   }
 
   render() {
-    let props = this.props,
-      className = 'alert-row';
+    const props = this.props;
+    let className = 'alert-row';
 
     className += this.state.hide ? ' hide' : '';
 
-    let type = props.tip_type;
+    const type = props.tip_type;
 
     const message = props.message;
     let msg;
     // 当message是数组的时候，返回多个div，用于换行
-    if(Object.prototype.toString.call(message) === '[object Array]') {
+    if (Object.prototype.toString.call(message) === '[object Array]') {
       msg = [];
       message.forEach((m, i) => {
         msg.push(<div key={i}>{m}</div>);
@@ -48,10 +48,12 @@ class Tip extends React.Component {
 
     return (
       <div className={className}>
-        <Alert type={type}
+        <Alert
+          type={type}
           message={msg}
           description={props.__[props.description]}
-          showIcon={props.showIcon === undefined ? true : props.showIcon} />
+          showIcon={props.showIcon === undefined ? true : props.showIcon}
+        />
       </div>
     );
   }

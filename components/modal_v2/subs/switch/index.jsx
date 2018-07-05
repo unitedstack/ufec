@@ -37,13 +37,12 @@ class Switchs extends React.Component {
   }
 
   valueIsEmpty(decorator) {
-
-    let value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
-    return value === undefined || value === ''
+    const value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
+    return value === undefined || value === '';
   }
 
   render() {
-    let props = this.props,
+    const props = this.props,
       state = this.state;
     let className = '';
 
@@ -61,11 +60,12 @@ class Switchs extends React.Component {
 
     const isRequired = decorator && decorator.rules && decorator.rules.some(rule => rule.required);
 
-    return <FormItem
+    return (<FormItem
       label={props.label}
       className={className}
       {...formItemLayout}
-      extra={props.extra}>
+      extra={props.extra}
+    >
       {
         decorator && getFieldDecorator(decorator.id, {
           valuePropName: 'checked',
@@ -73,16 +73,15 @@ class Switchs extends React.Component {
           initialValue: decorator.initialValue,
           onChange: decorator.onChange,
           hidden: state.hide || (!isRequired && this.valueIsEmpty(decorator))
-        })(
-          <Switch
-            size={state.size}
-            disabled={state.disabled}
-            loading={state.loading}
-            checkedChildren={state.checkedChildren}
-            unCheckedChildren={state.unCheckedChildren}/>
-        )
+        })(<Switch
+          size={state.size}
+          disabled={state.disabled}
+          loading={state.loading}
+          checkedChildren={state.checkedChildren}
+          unCheckedChildren={state.unCheckedChildren}
+        />)
       }
-    </FormItem>;
+    </FormItem>);
   }
 }
 

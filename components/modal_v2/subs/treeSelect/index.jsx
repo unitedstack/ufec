@@ -3,7 +3,6 @@
  * disabled: bool,
  * required: bool
  * hide: bool
- * value: array 选中值的数据
  * treeData: array 初始化数据
  * treeData = {
  *   value: 'xx',
@@ -27,7 +26,6 @@ class TreeSelectModal extends React.Component {
     super(props);
 
     this.state = {
-      value: props.value,
       hide: props.hide,
       maxHeight: 100,
       disabled: props.disabled,
@@ -46,17 +44,19 @@ class TreeSelectModal extends React.Component {
   }
 
   renderTreeNode(treeData) {
-    return treeData.map(tree => <TreeNode disabled={tree.disabled} value={tree.name} title={tree.name} key={tree.id} >
+    return treeData.map(tree => (<TreeNode disabled={tree.disabled} value={tree.name} title={tree.name} key={tree.id} >
       { tree.children && this.renderTreeNode(tree.children) }
-    </TreeNode>);
+    </TreeNode>));
   }
 
   componentDidUpdate() {
     const decorator = this.props.decorator;
     const clientHeight = document.getElementById('modal-container').clientHeight;
+    const decoratorEle = document.getElementsByClassName(decorator.id);
 
-    let decoratorEle = document.getElementsByClassName(decorator.id),
-      offsetTop = 0, height = 0, maxHeight = 400;
+    let offsetTop = 0,
+      height = 0,
+      maxHeight = 400;
 
     if (decoratorEle[0]) {
       offsetTop = decoratorEle[0].offsetTop;
@@ -71,22 +71,21 @@ class TreeSelectModal extends React.Component {
 
     if (maxHeight !== this.state.maxHeight) {
       this.setState({
-        maxHeight: maxHeight
+        maxHeight
       });
     }
   }
 
   valueIsEmpty(decorator) {
-
-    let value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
-    return value === undefined || value === ''
+    const value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
+    return value === undefined || value === '';
   }
 
   render() {
     const decorator = this.props.decorator;
-    let props = this.props,
-      state = this.state,
-      className = decorator.id;
+    const props = this.props;
+    const state = this.state;
+    let className = decorator.id;
 
     if (this.state.hide) {
       className += ' hide';
@@ -101,33 +100,33 @@ class TreeSelectModal extends React.Component {
 
     const isRequired = decorator && decorator.rules && decorator.rules.some(rule => rule.required);
 
-    return <FormItem
+    return (<FormItem
       label={props.label}
       className={className}
       {...formItemLayout}
-      extra={props.extra}>
+      extra={props.extra}
+    >
       {
         decorator && getFieldDecorator(decorator.id, {
           rules: decorator.rules,
           initialValue: decorator.initialValue,
           onChange: decorator.onChange,
           hidden: state.hide || (!isRequired && this.valueIsEmpty(decorator))
-        })(
-          <TreeSelect
-            showSearch
-            disabled={state.disabled}
-            placeholder={props.placeholder}
-            dropdownStyle={{maxHeight: state.maxHeight}}
-            allowClear
-            multiple
-            onSelect={this.onChange}
-            treeCheckable={true}
-            showCheckedStrategy={SHOW_PARENT}>
-            { this.state.treeData && this.renderTreeNode(this.state.treeData) }
-          </TreeSelect>
-        )
+        })(<TreeSelect
+          showSearch
+          disabled={state.disabled}
+          placeholder={props.placeholder}
+          dropdownStyle={{ maxHeight: state.maxHeight }}
+          allowClear
+          multiple
+          onSelect={this.onChange}
+          treeCheckable
+          showCheckedStrategy={SHOW_PARENT}
+        >
+          { this.state.treeData && this.renderTreeNode(this.state.treeData) }
+        </TreeSelect>)
       }
-    </FormItem>;
+    </FormItem>);
   }
 }
 

@@ -4,7 +4,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { green, red, cyan } = require('chalk');
+const { green } = require('chalk');
 const { exec } = require('child_process');
 const program = require('commander');
 const transpile = require('./transpile');

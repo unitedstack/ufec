@@ -35,13 +35,12 @@ import deepClone from '../../utils/deep_clone';
 import convert from './convert';
 
 class ModalBase extends React.Component {
-
   constructor(props) {
     super(props);
     this.__ = props.__ || {};
     const config = deepClone(props.config);
     this.state = {
-      config: config,
+      config,
       disabled: config.btn.disabled === undefined ? false : config.btn.disabled,
       visible: true,
       loading: false,
@@ -52,38 +51,38 @@ class ModalBase extends React.Component {
   }
 
   initialize() {
-    let config = this.state.config;
+    const config = this.state.config;
     return config.fields.map((m) => {
       m.label = this.__[m.field] || m.field;
       m.__ = this.__;
       m.form = this.props.form;
 
-      let subComs = {
-        'input': Input,
-        'textarea': Input,
-        'searchInput': Input,
-        'groupInput': Input,
-        'password': Input,
-        'inputNumber': InputNumber,
-        'radio': Radio,
-        'select': Select,
-        'optionGroup': Select,
-        'slider': Slider,
-        'switch': Switch,
-        'alert': Alert,
-        'alertWithClick': AlertWithClick,
-        'autoComplete': AutoComplete,
-        'checkbox': Checkbox,
-        'custom': Custom,
-        'checkboxTable': CheckboxTable,
-        'text': Text,
-        'iconLabel': IconLabel,
-        'treeSelect': TreeSelect,
-        'datePicker': DatePicker
+      const subComs = {
+        input: Input,
+        textarea: Input,
+        searchInput: Input,
+        groupInput: Input,
+        password: Input,
+        inputNumber: InputNumber,
+        radio: Radio,
+        select: Select,
+        optionGroup: Select,
+        slider: Slider,
+        switch: Switch,
+        alert: Alert,
+        alertWithClick: AlertWithClick,
+        autoComplete: AutoComplete,
+        checkbox: Checkbox,
+        custom: Custom,
+        checkboxTable: CheckboxTable,
+        text: Text,
+        iconLabel: IconLabel,
+        treeSelect: TreeSelect,
+        datePicker: DatePicker
       };
 
-      let Sub = subComs[m.type];
-      return Sub ? <Sub key={m.field} onAction={this.onAction} {...m}/> : null;
+      const Sub = subComs[m.type];
+      return Sub ? <Sub key={m.field} onAction={this.onAction} {...m} /> : null;
     });
   }
 
@@ -98,16 +97,16 @@ class ModalBase extends React.Component {
       this.props.onInitialize && this.props.onInitialize(this.props.form, this.updateFields);
     });
     event.on(`valuesChange_${index}`, (value) => {
-      let field = Object.keys(value)[0];
-      let currentField = _config.fields.find(f => f.field === field);
-      let linkList = currentField && currentField.linkList;
-      if(linkList && linkList.length && linkList.length > 0) {
-        linkList.forEach(link => {
-          let id = link.id;
+      const field = Object.keys(value)[0];
+      const currentField = _config.fields.find(f => f.field === field);
+      const linkList = currentField && currentField.linkList;
+      if (linkList && linkList.length && linkList.length > 0) {
+        linkList.forEach((link) => {
+          const id = link.id;
           const keys = Object.keys(link);
-          keys.forEach(key => {
-            if(key !== 'id') {
-              _config.fields.find(f => f.field === id)[key] = ( typeof link[key] === 'function' ? link[key](value[field]) : link[key] );
+          keys.forEach((key) => {
+            if (key !== 'id') {
+              _config.fields.find(f => f.field === id)[key] = (typeof link[key] === 'function' ? link[key](value[field]) : link[key]);
             }
           });
         });
@@ -124,13 +123,13 @@ class ModalBase extends React.Component {
    * @des -- Update specify field's props
    * @param {Object} fields -- {fieldName: {disabled: true}}
    */
-  updateFields = fields => {
+  updateFields = (fields) => {
     const _config = this.state.config;
-    if(Object.prototype.toString.call(fields) === '[object Object]') {
+    if (Object.prototype.toString.call(fields) === '[object Object]') {
       const fieldKeys = Object.keys(fields);
-      fieldKeys.forEach(fk => {
-        let keys = Object.keys(fields[fk]);
-        keys.forEach(key => {
+      fieldKeys.forEach((fk) => {
+        const keys = Object.keys(fields[fk]);
+        keys.forEach((key) => {
           _config.fields.find(f => f.field === fk)[key] = fields[fk][key];
         });
       });
@@ -158,21 +157,19 @@ class ModalBase extends React.Component {
                     loading: false
                   });
                 });
-              } else {
-                if (errorMessage) {
-                  this.setState({
-                    message: errorMessage,
-                    error: true
-                  });
-                  this.setState({
-                    loading: false
-                  });
-                }
+              } else if (errorMessage) {
+                this.setState({
+                  message: errorMessage,
+                  error: true
+                });
+                this.setState({
+                  loading: false
+                });
               }
             }, this.closeImmediately, this.setBtnDisabled);
           });
         };
-        if(props.beforeSubmit) {
+        if (props.beforeSubmit) {
           props.beforeSubmit(values, props.form, trueSubmit);
         } else {
           trueSubmit();
@@ -211,7 +208,7 @@ class ModalBase extends React.Component {
     const refList = window.modalRefList;
     const index = refList.length;
     const len = refList.length;
-    if(refList && refList.length > 1) {
+    if (refList && refList.length > 1) {
       refList[len - 2].current.setState({
         loading: false,
         visible: true
@@ -236,7 +233,7 @@ class ModalBase extends React.Component {
     // Modal自带ESC监听，所以无需处理
 
     // Enter keyCode === 13
-    if(this.state.visible && e.keyCode === 13) {
+    if (this.state.visible && e.keyCode === 13) {
       this.handleSubmit(e);
     }
   }
@@ -244,14 +241,12 @@ class ModalBase extends React.Component {
   modalRef = React.createRef();
 
   render() {
-    let props = this.props,
+    const props = this.props,
       state = this.state,
       __ = this.__,
       btn = props.config.btn;
 
-    let title = props.config.title.map(function(m) {
-      return __[m];
-    }).join('');
+    const title = props.config.title.map(m => __[m]).join('');
 
     // 多级pop, 存放modal
     const div = Array.from(document.querySelectorAll('#modal-container > div'));
@@ -262,18 +257,28 @@ class ModalBase extends React.Component {
       <div onKeyDown={this.onKeyDown}>
         <Modal
           title={title}
-          ref={ this.modalRef }
+          ref={this.modalRef}
           visible={state.visible}
-          bodyStyle={{padding: '24px 50px 24px 0'}}
-          width={ props.width || 540 }
-          className={ props.modalClassName || '' }
+          bodyStyle={{ padding: '24px 50px 24px 0' }}
+          width={props.width || 540}
+          className={props.modalClassName || ''}
           getContainer={() => container}
           onCancel={this.onCancel}
           maskClosable={false}
           footer={[
             <Button key="cancel" type="dashed" onClick={this.onCancel}>{__.cancel}</Button>,
-            <Button key="confirm" type={btn.type || 'primary'} onClick={this.handleSubmit} htmlType="submit" disabled={state.disabled} loading={state.loading}>{__[btn.value]}</Button>
-          ]}>
+            <Button
+              key="confirm"
+              type={btn.type || 'primary'}
+              onClick={this.handleSubmit}
+              htmlType="submit"
+              disabled={state.disabled}
+              loading={state.loading}
+            >
+              {__[btn.value]}
+            </Button>
+          ]}
+        >
           <Form>
             { this.initialize() }
             <Alert __={__} message={state.message} hide={!state.error} tip_type="error" />
