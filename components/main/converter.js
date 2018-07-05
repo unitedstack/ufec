@@ -6,24 +6,13 @@ export default  {
     if (Object.prototype.toString.call(obj) === '[object Array]') {
       let strs = '';
       obj.forEach((str) => {
-        strs += lang[str];
+        strs += lang[str] || str;
       });
 
       return strs;
     } else {
-      return obj;
+      return lang[obj] || obj;
     }
-  },
-
-  getSubItem(lang, children) {
-    children.forEach((child) => {
-      child.items.forEach((childItem) => {
-        childItem.title = this.getLangValue(lang, childItem.title);
-        if (childItem.children) {
-          this.getSubItem(lang, childItem.children);
-        }
-      });
-    });
   },
 
   convertLang(lang, config) {
