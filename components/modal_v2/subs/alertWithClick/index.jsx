@@ -12,8 +12,8 @@ class Tip extends React.Component {
 
     this.state = {
       hide: !!props.hide,
-      message: props.message || '',
-      description: props.description || ''
+      // message: props.message || '',
+      // description: props.description || ''
     };
   }
 
@@ -28,21 +28,25 @@ class Tip extends React.Component {
   }
 
   render() {
-    let props = this.props,
-      className = 'modal-row alert-row';
+    const props = this.props;
+    let className = 'modal-row alert-row';
 
     className += this.state.hide ? ' hide' : '';
 
-    let type = props.tip_type;
+    const type = props.tip_type;
 
     return (
       <div className={className}>
-        <Alert type={type}
-          message={<TipContent message={props.__[props.message] || props.message}
+        <Alert
+          type={type}
+          message={<TipContent
+            message={props.__[props.message] || props.message}
             linkText={props.__[props.linkText]}
-            onClick={this.onClick} />}
-          description ={props.__[props.description]}
-          showIcon />
+            onClick={this.onClick}
+          />}
+          description={props.__[props.description]}
+          showIcon
+        />
       </div>
     );
   }

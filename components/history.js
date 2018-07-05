@@ -9,11 +9,11 @@
  *
  * history.getPathList() // return pathlist array
  */
-import {createBrowserHistory} from 'history';
+import { createBrowserHistory } from 'history';
 
 const currentUfecApp = window.CURRENT_UFEC_APP || 'dashboard';
 
-const getPathList = () => window.location.pathname.split('/').filter((m) => !!m && m !== currentUfecApp);
+const getPathList = () => window.location.pathname.split('/').filter(m => !!m && m !== currentUfecApp);
 
 const HISTORY = createBrowserHistory({
   basename: `/${currentUfecApp}`

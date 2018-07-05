@@ -20,8 +20,8 @@ class Operation extends React.Component {
 
   onChangeSelect = (key, value, option) => {
     this.props.onAction('operation', 'select', {
-      key: key,
-      value: value
+      key,
+      value
     });
   }
 
@@ -43,7 +43,7 @@ class Operation extends React.Component {
       <div className="operations-wrapper">
         {
           operations.map((operation, i) => {
-            if(operation.type === 'select') {
+            if (operation.type === 'select') {
               // 下拉框类型
               return operation.data && operation.data.length > 0 ? <OpSelect
                 key={i}
@@ -52,37 +52,38 @@ class Operation extends React.Component {
                 tableLoading={tableLoading}
                 onChangeSelect={this.onChangeSelect}
               /> : null;
-            } else if(operation.type === 'checkbox') {
+            } else if (operation.type === 'checkbox') {
               // 类 checkbox 类型
               return operation.data && operation.data.length > 0 ?
                 (
-                  <div className="main-operation-checkbox-wrapper"
-                    key={operation.key}>
+                  <div
+                    className="main-operation-checkbox-wrapper"
+                    key={operation.key}
+                  >
                     <ul>
                       {
-                        operation.data.map(item => {
-                          return (
-                            <li key={item.value}
-                              className={item.checked ? 'checked' : ''}
-                              onClick={this.handleCheckboxChange.bind(this, operation.key, item.value)}>
-                              <span className="checkbox-content">
-                                {__[item.name]}
-                              </span>
-                              {
-                                // 额外的补充内容
-                                item.suffix
-                              }
-                            </li>
-                          );
-                        })
+                        operation.data.map(item => (
+                          <li
+                            key={item.value}
+                            className={item.checked ? 'checked' : ''}
+                            onClick={this.handleCheckboxChange.bind(this, operation.key, item.value)}
+                          >
+                            <span className="checkbox-content">
+                              {__[item.name]}
+                            </span>
+                            {
+                              // 额外的补充内容
+                              item.suffix
+                            }
+                          </li>
+                        ))
 
                       }
                     </ul>
                   </div>
                 ) : null;
-            } else {
-              return null;
             }
+            return null;
           })
         }
       </div>

@@ -1,12 +1,13 @@
 import React from 'react';
 import { Table, Tabs, Icon, Input } from 'antd';
-const TabPane = Tabs.TabPane;
-const Search = Input.Search;
 import history from '../history';
 import Detail from './detail';
 import ButtonList from './button_list';
 import Operation from './operation';
 import converter from './converter';
+
+const TabPane = Tabs.TabPane;
+const Search = Input.Search;
 
 class Modal extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class Modal extends React.Component {
 
     converter.convertLang(this.__, props.config);
 
-    ['onAction', 'onClickCaptain', 'onClickDetailTabs', 'getCurrentKey'].forEach(func => {
+    ['onAction', 'onClickCaptain', 'onClickDetailTabs', 'getCurrentKey'].forEach((func) => {
       this[func] = this[func].bind(this);
     });
   }
@@ -33,7 +34,7 @@ class Modal extends React.Component {
 
   componentDidMount() {
     const _config = this.state.config;
-    if(!_config.table.loading) {
+    if (!_config.table.loading) {
       _config.table.loading = true;
       this.setState({
         config: _config
@@ -45,7 +46,7 @@ class Modal extends React.Component {
     }
   }
 
-  componentWillUnMount() {
+  componentWillUnmount() {
     // 当组件unmount的时候，需要重置main的数据并且更新detail为关闭状态.
     this.clearState(true);
   }
@@ -53,7 +54,7 @@ class Modal extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     const nextPathList = history.getPathList();
     // 当同模块带detail跳转的时候，需要重新走onInitialize.
-    if(!this.state.currentRow
+    if (!this.state.currentRow
         && prevState.pathList.length > 1
         && nextPathList.length > 1
         && prevState.pathList[0] === nextPathList[0]
@@ -62,13 +63,13 @@ class Modal extends React.Component {
       this.props.onInitialize();
     }
     // 当第一次强刷带detail初始化的时候，需要触发onClickDetailTabs去更新默认tab的content;
-    if(this.enableDetail(prevProps, prevState)) {
+    if (this.enableDetail(prevProps, prevState)) {
       this.onClickDetailTabs();
     }
     // 打开detail的操作。
     // 如果当前url带id && detail处于关闭状态 && currentRow有数据 就打开detail
     const detailRef = this.detailRef.current;
-    if(history.getPathList().length > 1
+    if (history.getPathList().length > 1
       && !detailRef.state.visible
       && this.hasCurrentRow()) {
       detailRef.open();
@@ -95,14 +96,14 @@ class Modal extends React.Component {
   }
 
   tableColRender(columns) {
-    columns.map((column) => {
+    columns.forEach((column) => {
       switch (column.type) {
         case 'captain':
           column.render = (text, row, index) => {
             let formatData = column.formatter && column.formatter(text, row, index);
             if (!formatData) {
-              let key = this.props.config.table.rowKey;
-              formatData = text ? text : `(${row[key].substr(0, 8)})`;
+              const key = this.props.config.table.rowKey;
+              formatData = text || `(${row[key].substr(0, 8)})`;
             }
             return (
               <a className="captain" onClick={this.onClickCaptain.bind(this, row)}>
@@ -118,10 +119,10 @@ class Modal extends React.Component {
   }
 
   onAction(field, actionType, data, refs) {
-    if(!data) {
+    if (!data) {
       data = {};
     }
-    if(!data.rows) {
+    if (!data.rows) {
       data.rows = this.state.rows;
     }
     const func = this.props.onAction;
@@ -132,7 +133,7 @@ class Modal extends React.Component {
     e.preventDefault();
     const pathList = history.getPathList();
     // 没有二级路由的时候添加二级路由
-    if(pathList.length < 2 || row.id !== pathList[1]) {
+    if (pathList.length < 2 || row.id !== pathList[1]) {
       history.push(`/${pathList[0]}/${row.id}`);
     } else {
       // 有二级路由的时候关闭二级路由
@@ -141,7 +142,7 @@ class Modal extends React.Component {
   }
 
   onChangeTabs(key) {
-    if(key === history.getPathList()[0]) {
+    if (key === history.getPathList()[0]) {
       return;
     }
     history.push(`/${key}`);
@@ -149,17 +150,17 @@ class Modal extends React.Component {
 
   onSearchTable(value) {
     this.onAction('search', 'click', {
-      value: value
+      value
     });
   }
 
   onClickDetailTabs(rows, key = this.getCurrentKey()) {
-    if(!rows) {
+    if (!rows) {
       rows = [this.state.currentRow];
     }
     this.onAction('detail', 'click', {
-      key: key,
-      rows: rows
+      key,
+      rows
     }, this.detailRef.current);
   }
 
@@ -175,7 +176,7 @@ class Modal extends React.Component {
       selectedRowKeys: []
     }, () => {
       this.btnListRender(this.state.rows);
-      if(closeDetail) {
+      if (closeDetail) {
         this.detailRef.setState({
           visible: false
         });
@@ -184,11 +185,11 @@ class Modal extends React.Component {
   }
 
   btnListRender(selectedRows) {
-    if(!this.props.btnListRender) {
+    if (!this.props.btnListRender) {
       return;
     }
     const refs = this.btnListRef.current;
-    let btns = refs.state.btns;
+    const btns = refs.state.btns;
     refs.setState({
       btns: this.props.btnListRender(selectedRows, btns)
     });
@@ -221,24 +222,24 @@ class Modal extends React.Component {
         total: table.total,
         onChange: (page, pageSize) => {
           this.onAction('pagination', 'click', {
-            page: page,
-            pageSize: pageSize
+            page,
+            pageSize
           });
         },
         ...table.pagination
       };
 
     // 判断是否显示页数
-    let tableClass = showPage.withPage ? 'table-box' : 'table-box without-page';
+    const tableClass = showPage.withPage ? 'table-box' : 'table-box without-page';
 
     // 当前匹配的模块
     const selectedRowKeys = this.state.selectedRowKeys;
     const rowSelection = {
       selectedRowKeys,
-      onChange: (selectedRowKeys, selectedRows) => {
+      onChange: (_selectedRowKeys, selectedRows) => {
         this.setState({
           rows: selectedRows,
-          selectedRowKeys: selectedRowKeys
+          selectedRowKeys: _selectedRowKeys
         }, () => {
           this.btnListRender(selectedRows);
         });
@@ -250,7 +251,7 @@ class Modal extends React.Component {
     // 自定义的loading icon会有一瞬间编程默认的loading icon
     const spinProps = {
       spinning: table.loading,
-      indicator: <Icon type="loading" style={{fontSize: 30}} />
+      indicator: <Icon type="loading" style={{ fontSize: 30 }} />
     };
 
     return (
@@ -261,7 +262,7 @@ class Modal extends React.Component {
               <div className="submenu-tabs">
                 <Tabs activeKey={tabs.find(tab => tab.default).key} onTabClick={this.onChangeTabs.bind(this)} type="card">
                   {
-                    tabs.map(tab => <TabPane tab={tab.name} key={tab.key}></TabPane>)
+                    tabs.map(tab => <TabPane tab={tab.name} key={tab.key} />)
                   }
                 </Tabs>
               </div> : null
@@ -271,7 +272,7 @@ class Modal extends React.Component {
                 <div className="left">
                   <ButtonList
                     loading={table.loading}
-                    ref={ this.btnListRef }
+                    ref={this.btnListRef}
                     onAction={this.onAction}
                     btns={btns}
                   />
@@ -301,7 +302,7 @@ class Modal extends React.Component {
               {
                 table ? <Table
                   loading={spinProps}
-                  locale={{emptyText: this.props.no_data}}
+                  locale={{ emptyText: this.props.no_data }}
                   pagination={pagination}
                   columns={columns}
                   dataKey={table.dataKey}
@@ -316,12 +317,13 @@ class Modal extends React.Component {
         </div>
         {
           detail ? <Detail
-            ref={ this.detailRef }
+            ref={this.detailRef}
             tabs={tabs}
             detail={detail}
             tableLoading={table.loading}
             row={this.state.currentRow}
-            onClickTabs={this.onClickDetailTabs.bind(this)} />
+            onClickTabs={this.onClickDetailTabs.bind(this)}
+          />
           : null
         }
       </div>

@@ -2,7 +2,6 @@
  * hide: bool 隐藏
  * info: string text的内容
  * text_type: info | warning | error | default -- text的颜色
- * hasLabel: 文字是否缩进
  */
 import React from 'react';
 
@@ -16,7 +15,6 @@ class Text extends React.Component {
 
     this.state = {
       hide: !!props.hide,
-      hasLabel: !!props.hasLabel,
       info: props.info
     };
   }
@@ -29,21 +27,21 @@ class Text extends React.Component {
   }
 
   setColorByType(type) {
-    switch(type) {
+    switch (type) {
       case 'info':
-        return {color: '#01AFC9'};
+        return { color: '#01AFC9' };
       case 'waring':
-        return {color: '#FCA625'};
+        return { color: '#FCA625' };
       case 'error':
-        return {color: '#EF6D64'};
+        return { color: '#EF6D64' };
       default:
-        return {color: '#252F3D'};
+        return { color: '#252F3D' };
     }
   }
 
   render() {
-    let props = this.props;
-    let state = this.state;
+    const props = this.props;
+    const state = this.state;
     let className = props.isColumn ? 'text-row column-row' : 'text-row';
 
     if (this.state.hide) {
@@ -54,14 +52,15 @@ class Text extends React.Component {
       className += ' hidden';
     }
 
-    return  <FormItem
+    return (<FormItem
       className={className}
       label={props.label}
       required={props.required}
       labelCol={{ span: 6 }}
-      wrapperCol={{ span: 18 }}>
+      wrapperCol={{ span: 18 }}
+    >
       <span style={this.setColorByType(props.text_type)}>{props.__[state.info] || state.info}</span>
-    </FormItem>;
+    </FormItem>);
   }
 }
 

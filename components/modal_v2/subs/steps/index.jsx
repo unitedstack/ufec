@@ -1,5 +1,6 @@
 import React from 'react';
 import { Steps, Button } from 'antd';
+
 const Step = Steps.Step;
 class StepsModal extends React.Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class StepsModal extends React.Component {
       current: 0,
       disabled: props.disabled,
       loading: false,
-      isNext: false
+      // isNext: false
     };
   }
 
@@ -16,16 +17,16 @@ class StepsModal extends React.Component {
     const that = this;
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        let current = that.state.current + 1;
+        const current = that.state.current + 1;
         this.setState({
-          isNext: true,
+          // isNext: true,
           current
         }, () => {
           this.props.onChange && this.props.onChange(values, current);
         });
       }
     });
-    /*this.setState({
+    /* this.setState({
       isNext: true
     }, () => {
       this.props.onAction && this.props.onAction(this.props.field, this.state, () => {
@@ -34,14 +35,14 @@ class StepsModal extends React.Component {
           this.setState({ current });
         }
       });
-    });*/
+    }); */
   }
 
   prev() {
-    let current = this.state.current - 1;
-    let form = this.props.form.getFieldsValue();
+    const current = this.state.current - 1;
+    const form = this.props.form.getFieldsValue();
     this.setState({
-      isNext: false,
+      // isNext: false,
       current
     }, () => this.props.onPrev && this.props.onPrev(current, form));
   }
@@ -60,27 +61,31 @@ class StepsModal extends React.Component {
     const { current } = this.state,
       len = this.props.steps.length;
 
-    let state = this.state,
+    const state = this.state,
       props = this.props,
       __ = props.__;
 
-    return <div className="steps-wrapper">
+    return (<div className="steps-wrapper">
       <Steps current={current} size="small">
         {props.steps.map((s, i) => <Step key={i} title={s.title} description={s.description} />)}
       </Steps>
       <div className="steps-content">{props.steps[state.current].content}</div>
       <div style={{ marginTop: 24 }}>
-        <Button className={current === 0 ? 'hide' : 'btn-default'}
-          onClick={current !== 0 ? this.prev.bind(this) : null}>{__.prev}</Button>
-        <Button disabled={state.disabled}
+        <Button
+          className={current === 0 ? 'hide' : 'btn-default'}
+          onClick={current !== 0 ? this.prev.bind(this) : null}
+        >{__.prev}</Button>
+        <Button
+          disabled={state.disabled}
           style={{ float: 'right' }}
           type="primary"
           loading={state.loading}
-          onClick={current !== len - 1 ? this.next.bind(this) : this.onConfirm.bind(this)}>
+          onClick={current !== len - 1 ? this.next.bind(this) : this.onConfirm.bind(this)}
+        >
           {current === len - 1 ? __.create : __.next}
         </Button>
       </div>
-    </div>;
+    </div>);
   }
 }
 export default StepsModal;

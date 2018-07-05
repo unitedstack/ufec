@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form } from 'antd';
+
 const FormItem = Form.Item;
 
 
@@ -23,9 +24,9 @@ class InputModal extends React.Component {
   }
 
   render() {
-    let props = this.props,
-      state = this.state,
-      className = '';
+    const props = this.props,
+      state = this.state;
+    let className = '';
 
     className += state.hide ? ' hide' : '';
 
@@ -35,26 +36,25 @@ class InputModal extends React.Component {
     };
     const decorator = props.decorator;
 
-    const {getFieldDecorator} = this.props.form;
+    const { getFieldDecorator } = this.props.form;
 
-    return <div className={props.className}>
+    return (<div className={props.className}>
       <FormItem
         label={props.label}
         required={props.required}
         className={className}
         {...formItemLayout}
         validateStatus={state.status}
-        help={props.__[state.msg] || state.msg}>
+        help={props.__[state.msg] || state.msg}
+      >
         {
           decorator && !state.hide ? getFieldDecorator(decorator.id, {
             rules: decorator.rules,
             initialValue: decorator.initialValue
-          })(
-            <button onClick={this.onChange}>hahahaah</button>
-          ) : <div></div>
+          })(<button onClick={this.onChange}>hahahaah</button>) : <div />
         }
       </FormItem>
-    </div>;
+    </div>);
   }
 }
 

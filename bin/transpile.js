@@ -3,7 +3,7 @@ const path = require('path');
 const glob = require('glob');
 const chalk = require('chalk');
 
-module.exports = function() {
+module.exports = function () {
   let language = process.env.npm_config_lang || process.env.language;
   if (!language) {
     language = 'zh-CN';
@@ -76,4 +76,4 @@ module.exports = function() {
       }
     });
   });
-}
+};

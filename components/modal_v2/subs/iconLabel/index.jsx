@@ -1,4 +1,4 @@
-/**图标文字
+/** 图标文字
  *
  * isColumn: bool 排列方式
  * hide: bool 隐藏
@@ -29,7 +29,7 @@ class IconLabel extends React.Component {
   }
 
   render() {
-    let props = this.props;
+    const props = this.props;
 
     let className = 'icon-label-wrapper';
 
@@ -37,18 +37,19 @@ class IconLabel extends React.Component {
       className += ' hide';
     }
 
-    return <FormItem
+    return (<FormItem
       className={className}
       label={props.label}
       required={props.required}
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 18 }}
-      extra={props.extra}>
+      extra={props.extra}
+    >
       {
         props.icon_type && <Icon type={props.icon_type} />
       }
       <span className="label_value">{this.state.text}</span>
-    </FormItem>;
+    </FormItem>);
   }
 }
 

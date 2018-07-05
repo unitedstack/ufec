@@ -44,9 +44,8 @@ class SelectModal extends React.Component {
   }
 
   valueIsEmpty(decorator) {
-
-    let value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
-    return value === undefined || value === ''
+    const value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
+    return value === undefined || value === '';
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -65,45 +64,43 @@ class SelectModal extends React.Component {
     if (props.empty_text) {
       if (props.empty_text.link_info) {
         return (
-          <span className={'empty-text-label'}>
+          <span className="empty-text-label">
             {__[props.empty_text.info]}
             <a onClick={this.onLinkClick}>
               {
-                props.empty_text.link_info.map(function(m) {
-                  return __[m];
-                }).join('')
+                props.empty_text.link_info.map(m => __[m]).join('')
               }
             </a>
           </span>
         );
-      } else {
-        return (
-          <span className="empty-text-label">{__[props.empty_text.info]}</span>
-        );
       }
+      return (
+        <span className="empty-text-label">{__[props.empty_text.info]}</span>
+      );
     } else if (state.data) {
-      switch(props.type) {
+      switch (props.type) {
         case 'select':
-          return <Select
+          return (<Select
             placeholder={props.placeholder}
             notFoundContent={__.no_data}
             style={styleWidth}
             disabled={state.disabled}
             mode={props.multiple ? 'multiple' : ''}
-            multiple={props.multiple}>
-            { state.data.map((d, index) => <Option key={d.id} value={d.id}>{d[state.nameType] || '(' + d.id.substring(0, 8) + ')'}</Option>) }
-          </Select>;
+            multiple={props.multiple}
+          >
+            { state.data.map((d, index) => <Option key={d.id} value={d.id}>{d[state.nameType] || `(${d.id.substring(0, 8)})`}</Option>) }
+          </Select>);
         case 'optionGroup':
-          return <Select
+          return (<Select
             placeholder={props.placeholder}
             style={styleWidth}
             disabled={state.disabled}
-            getPopupContainer={trigger => trigger.parentNode}>
-            { state.data.map((opt, index) => <OptGroup key={opt.id} label={opt.name}>
-              { opt.children && opt.children.map(child => <Option key={child.id} value={child.id}>{child.name || '(' + child.id.substring(0, 8) + ')'}</Option>) }
-            </OptGroup>
-            )}
-          </Select>;
+            getPopupContainer={trigger => trigger.parentNode}
+          >
+            { state.data.map((opt, index) => (<OptGroup key={opt.id} label={opt.name}>
+              { opt.children && opt.children.map(child => <Option key={child.id} value={child.id}>{child.name || `(${child.id.substring(0, 8)})`}</Option>) }
+            </OptGroup>))}
+          </Select>);
         default:
           break;
       }
@@ -111,7 +108,7 @@ class SelectModal extends React.Component {
   }
 
   render() {
-    let state = this.state,
+    const state = this.state,
       props = this.props;
 
     let className = '';
@@ -129,11 +126,12 @@ class SelectModal extends React.Component {
 
     const isRequired = decorator && decorator.rules && decorator.rules.some(rule => rule.required);
 
-    return <FormItem
+    return (<FormItem
       label={props.label}
       className={className}
       {...formItemLayout}
-      extra={props.extra}>
+      extra={props.extra}
+    >
       {
         decorator && getFieldDecorator(decorator.id, {
           rules: decorator.rules,
@@ -142,7 +140,7 @@ class SelectModal extends React.Component {
           hidden: state.hide || (!isRequired && this.valueIsEmpty(decorator))
         })(this.initialize(props, state))
       }
-    </FormItem>;
+    </FormItem>);
   }
 }
 

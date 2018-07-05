@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icon, Tabs, Spin } from 'antd';
 import history from '../history';
+
 const TabPane = Tabs.TabPane;
 
 class Detail extends React.Component {
@@ -17,7 +18,7 @@ class Detail extends React.Component {
   };
 
   onChangTabs(key) {
-    if(key === this.state.currentKey) {
+    if (key === this.state.currentKey) {
       return;
     }
     this.setState({
@@ -30,7 +31,7 @@ class Detail extends React.Component {
   loading(bool, cb) {
     this.setState({
       loading: bool
-    }, cb ? cb : () => {});
+    }, cb || (() => {}));
   }
 
   open = () => {
@@ -55,7 +56,7 @@ class Detail extends React.Component {
     const title = props.tabs && props.tabs.find(t => t.default).name;
     const tabs = props.detail.tabs;
     return (
-      <div className={'garen-com-table-detail' + (state.visible ? ' visible' : '')}>
+      <div className={`garen-com-table-detail${state.visible ? ' visible' : ''}`}>
         <div className="detail-wrapper">
           <div className="header">
             <div className="left">
@@ -67,24 +68,25 @@ class Detail extends React.Component {
             {tabs && tabs.length > 1 ? <div className="tabs">
               <Tabs activeKey={state.currentKey} onTabClick={this.onChangTabs.bind(this)} type="card">
                 {
-                  tabs.map(tab => <TabPane tab={tab.name} key={tab.key}></TabPane>)
+                  tabs.map(tab => <TabPane tab={tab.name} key={tab.key} />)
                 }
               </Tabs>
             </div> : null}
             {
               (props.tableLoading || state.loading) ?
-              <div className="loading-wrapper">
-                <Spin indicator={<Icon type="loading" style={{fontSize: 30}} />}/>
-              </div> :
-              Object.keys(state.contents).length > 0 && Object.keys(state.contents).map((key) =>
-                state.contents[key] ?
-                <div key={key}
-                  className="detail-content"
-                  style={{display: key === state.currentKey ? 'block' : 'none'}}>
-                  {state.contents[key]}
-                </div>
-                  : null
-              )
+                <div className="loading-wrapper">
+                  <Spin indicator={<Icon type="loading" style={{ fontSize: 30 }} />} />
+                </div> :
+              Object.keys(state.contents).length > 0 && Object.keys(state.contents).map(key =>
+                (state.contents[key] ?
+                  <div
+                    key={key}
+                    className="detail-content"
+                    style={{ display: key === state.currentKey ? 'block' : 'none' }}
+                  >
+                    {state.contents[key]}
+                  </div>
+                  : null))
             }
           </div>
         </div>

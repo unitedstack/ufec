@@ -1,4 +1,4 @@
-/**自动补全(模糊搜索)
+/** 自动补全(模糊搜索)
  *
  * required: bool 是否必需
  * hide: bool 隐藏
@@ -13,6 +13,7 @@
 import React from 'react';
 
 import { AutoComplete, Form } from 'antd';
+
 const FormItem = Form.Item;
 
 class AutoCompleteModal extends React.Component {
@@ -35,16 +36,15 @@ class AutoCompleteModal extends React.Component {
   }
 
   valueIsEmpty(decorator) {
-
-    let value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
-    return value === undefined || value === ''
+    const value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
+    return value === undefined || value === '';
   }
 
   render() {
-    const { dataSource } =  this.state,
+    const { dataSource } = this.state,
       props = this.props,
       state = this.state,
-      styleWidth = {width: props.width};
+      styleWidth = { width: props.width };
 
     let className = '';
     if (state.hide) {
@@ -61,27 +61,27 @@ class AutoCompleteModal extends React.Component {
 
     const isRequired = decorator && decorator.rules && decorator.rules.some(rule => rule.required);
 
-    return <FormItem
+    return (<FormItem
       className={className}
       label={props.label}
-      {...formItemLayout}>
+      {...formItemLayout}
+    >
       {
         decorator && getFieldDecorator(decorator.id, {
           rules: decorator.rules,
           initialValue: decorator.initialValue,
           onChange: decorator.onChange,
           hidden: state.hide || (!isRequired && this.valueIsEmpty(decorator))
-        })(
-          <AutoComplete
-            dataSource={dataSource}
-            style={styleWidth}
-            placeholder={state.placeholder}
-            filterOption={true}
-            defaultActiveFirstOption={false}
-            disabled={state.disabled}/>
-        )
+        })(<AutoComplete
+          dataSource={dataSource}
+          style={styleWidth}
+          placeholder={state.placeholder}
+          filterOption
+          defaultActiveFirstOption={false}
+          disabled={state.disabled}
+        />)
       }
-    </FormItem>;
+    </FormItem>);
   }
 }
 

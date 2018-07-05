@@ -27,9 +27,8 @@ class RadioModal extends React.Component {
   }
 
   valueIsEmpty(decorator) {
-
-    let value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
-    return value === undefined || value === ''
+    const value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
+    return value === undefined || value === '';
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -41,9 +40,9 @@ class RadioModal extends React.Component {
   }
 
   render() {
-    let state = this.state,
-      props = this.props,
-      className = 'radio-row';
+    const state = this.state,
+      props = this.props;
+    let className = 'radio-row';
 
     if (this.state.hide) {
       className += ' hide';
@@ -54,7 +53,7 @@ class RadioModal extends React.Component {
       wrapperCol: { span: 18 }
     };
 
-    const _Radio = props.button ? RadioButton : Radio;
+    const TheRadio = props.button ? RadioButton : Radio;
     const decorator = props.decorator;
 
     const getFieldDecorator = this.props.form ? this.props.form.getFieldDecorator : null;
@@ -62,26 +61,31 @@ class RadioModal extends React.Component {
     const isRequired = decorator && decorator.rules && decorator.rules.some(rule => rule.required);
 
 
-    return <FormItem
+    return (<FormItem
       label={props.label}
       {...formItemLayout}
       className={className}
-      extra={props.extra}>
+      extra={props.extra}
+    >
       {
         decorator && getFieldDecorator(decorator.id, {
           rules: decorator.rules,
           initialValue: decorator.initialValue,
           onChange: decorator.onChange,
           hidden: state.hide || (!isRequired && this.valueIsEmpty(decorator))
-        })(
-          <RadioGroup disabled={state.disabled}>
-            {
-              state.data && state.data.map((d, index) => <_Radio style={{width: props.itemWidth || 144}} key={d.id} value={d.id}>{d.name || '(' + d.id.substring(0, 8) + ')'}</_Radio>)
-            }
-          </RadioGroup>
-        )
+        })(<RadioGroup disabled={state.disabled}>
+          {
+            state.data && state.data.map((d, index) => (<TheRadio
+              style={{ width: props.itemWidth || 144 }}
+              key={d.id}
+              value={d.id}
+            >
+              {d.name || `(${d.id.substring(0, 8)})`}
+            </TheRadio>))
+          }
+        </RadioGroup>)
       }
-    </FormItem>;
+    </FormItem>);
   }
 }
 

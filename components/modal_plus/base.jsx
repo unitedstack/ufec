@@ -31,14 +31,13 @@ import deepClone from '../../utils/deep_clone';
 import convert from './convert';
 
 class ModalBase extends React.Component {
-
   constructor(props) {
     super(props);
     this.__ = props.__;
     const config = deepClone(props.config);
     this.state = {
-      config: config,
-      disabled: config.btn.disabled === undefined ? false : config.btn.disabled,
+      config,
+      // disabled: config.btn.disabled === undefined ? false : config.btn.disabled,
       loading: false,
       error: false,
       className: 'component_modal_plus'
@@ -48,8 +47,8 @@ class ModalBase extends React.Component {
   }
 
   initialize() {
-    let config = this.state.config;
-    let contents = this.props.contents;
+    const config = this.state.config;
+    const contents = this.props.contents;
     return config.fields.map((m) => {
       m.label = this.__[m.field] || m.field;
       m.__ = this.__;
@@ -59,29 +58,29 @@ class ModalBase extends React.Component {
         m.onCancel = this.onCancel;
       }
 
-      let subComs = {
-        'input': Input,
-        'textarea': Input,
-        'searchInput': Input,
-        'groupInput': Input,
-        'inputNumber': InputNumber,
-        'radio': Radio,
-        'select': Select,
-        'optionGroup': Select,
-        'slider': Slider,
-        'switch': Switch,
-        'alert': Alert,
-        'alertWithClick': AlertWithClick,
-        'autoComplete': AutoComplete,
-        'checkbox': Checkbox,
-        'checkboxTable': CheckboxTable,
-        'text': Text,
-        'iconLabel': IconLabel,
-        'treeSelect': TreeSelect
+      const subComs = {
+        input: Input,
+        textarea: Input,
+        searchInput: Input,
+        groupInput: Input,
+        inputNumber: InputNumber,
+        radio: Radio,
+        select: Select,
+        optionGroup: Select,
+        slider: Slider,
+        switch: Switch,
+        alert: Alert,
+        alertWithClick: AlertWithClick,
+        autoComplete: AutoComplete,
+        checkbox: Checkbox,
+        checkboxTable: CheckboxTable,
+        text: Text,
+        iconLabel: IconLabel,
+        treeSelect: TreeSelect
       };
 
-      let Sub = subComs[m.type] || (contents && contents[m.type]);
-      return Sub ? <Sub key={m.field} onAction={this.onAction} {...m}/> : null;
+      const Sub = subComs[m.type] || (contents && contents[m.type]);
+      return Sub ? <Sub key={m.field} onAction={this.onAction} {...m} /> : null;
     });
   }
 
@@ -107,16 +106,16 @@ class ModalBase extends React.Component {
     });
     // EventEmitter
     event.on('valuesChange', (value) => {
-      let field = Object.keys(value)[0];
-      let currentField = _config.fields.find(f => f.field === field);
-      let linkList = currentField && currentField.linkList;
-      if(linkList && linkList.length && linkList.length > 0) {
-        linkList.forEach(link => {
-          let id = link.id;
+      const field = Object.keys(value)[0];
+      const currentField = _config.fields.find(f => f.field === field);
+      const linkList = currentField && currentField.linkList;
+      if (linkList && linkList.length && linkList.length > 0) {
+        linkList.forEach((link) => {
+          const id = link.id;
           const keys = Object.keys(link);
-          keys.forEach(key => {
-            if(key !== 'id') {
-              _config.fields.find(f => f.field === id)[key] = ( typeof link[key] === 'function' ? link[key](value[field]) : link[key] );
+          keys.forEach((key) => {
+            if (key !== 'id') {
+              _config.fields.find(f => f.field === id)[key] = (typeof link[key] === 'function' ? link[key](value[field]) : link[key]);
             }
           });
         });
@@ -133,13 +132,13 @@ class ModalBase extends React.Component {
    * @des -- Update specify field's props
    * @param {Object} fields -- {fieldName: {disabled: true}}
    */
-  updateFields = fields => {
+  updateFields = (fields) => {
     const _config = this.state.config;
-    if(Object.prototype.toString.call(fields) === '[object Object]') {
+    if (Object.prototype.toString.call(fields) === '[object Object]') {
       const fieldKeys = Object.keys(fields);
-      fieldKeys.forEach(fk => {
-        let keys = Object.keys(fields[fk]);
-        keys.forEach(key => {
+      fieldKeys.forEach((fk) => {
+        const keys = Object.keys(fields[fk]);
+        keys.forEach((key) => {
           _config.fields.find(f => f.field === fk)[key] = fields[fk][key];
         });
       });
@@ -161,21 +160,19 @@ class ModalBase extends React.Component {
             props.onConfirm(values, (success, errorMessage) => {
               if (success) {
                 this.onCancel();
-              } else {
-                if (errorMessage) {
-                  this.setState({
-                    message: errorMessage,
-                    error: true
-                  });
-                  this.setState({
-                    loading: false
-                  });
-                }
+              } else if (errorMessage) {
+                this.setState({
+                  message: errorMessage,
+                  error: true
+                });
+                this.setState({
+                  loading: false
+                });
               }
             }, this.closeImmediately, this.setBtnDisabled);
           });
         };
-        if(props.beforeSubmit) {
+        if (props.beforeSubmit) {
           props.beforeSubmit(values, props.form, trueSubmit);
         } else {
           trueSubmit();
@@ -195,13 +192,11 @@ class ModalBase extends React.Component {
   };
 
   render() {
-    let props = this.props,
+    const props = this.props,
       state = this.state,
       __ = this.__;
 
-    let title = props.config.title.map(function(m) {
-      return __[m];
-    }).join('');
+    const title = props.config.title.map(m => __[m]).join('');
 
     return (
       <div className={this.state.className}>
@@ -213,8 +208,8 @@ class ModalBase extends React.Component {
             <Form onSubmit={this.handleSubmit}>
               {this.initialize()}
               <Alert __={__} message={state.message} hide={!state.error} tip_type="error" />
-              <div className="btn-wrapper" style={{display: (props.config.btn && props.config.btn.hide) ? 'none' : 'block'}}>
-                <Button className="cancel-button" type="dashed" ref="btn" onClick={this.onCancel}>{__.cancel}</Button>
+              <div className="btn-wrapper" style={{ display: (props.config.btn && props.config.btn.hide) ? 'none' : 'block' }}>
+                <Button className="cancel-button" type="dashed" onClick={this.onCancel}>{__.cancel}</Button>
                 <Button className="create-button" loading={state.loading} type={props.config.btn.type} htmlType="submit">{__[props.config.btn.value]}</Button>
               </div>
             </Form>

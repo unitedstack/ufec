@@ -1,5 +1,5 @@
 import React from 'react';
-import {Select} from 'antd';
+import { Select } from 'antd';
 
 class OpSelect extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class OpSelect extends React.Component {
 
   onChangeSelect = (key, value, option) => {
     this.setState({
-      value: value
+      value
     }, () => {
       this.props.onChangeSelect(key, value, option);
     });
@@ -42,14 +42,16 @@ class OpSelect extends React.Component {
         disabled={state.tableLoading || state.disabled}
         onChange={this.onChangeSelect.bind(this, operation.key)}
         value={state.value}
-        style={{width: operation.width || 100}}>
+        style={{ width: operation.width || 100 }}
+      >
         {
-          state.data.map(d => <Select.Option
+          state.data.map(d => (<Select.Option
             key={d.value}
-            value={d.value}>
+            value={d.value}
+          >
             {operation.transpile ? __[d.name] : d.name}
             {d.suffix}
-          </Select.Option>)
+          </Select.Option>))
         }
       </Select>
     );

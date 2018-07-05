@@ -11,6 +11,7 @@
 
 import React from 'react';
 import { Tabs, Form } from 'antd';
+
 const TabPane = Tabs.TabPane;
 const FormItem = Form.Item;
 
@@ -41,7 +42,7 @@ class Tab extends React.Component {
 
   onChange(activeKey) {
     this.setState({
-      activeKey: activeKey
+      activeKey
     }, () => {
       this.props.onAction && this.props.onAction(this.props.field, this.state);
     });
@@ -49,12 +50,12 @@ class Tab extends React.Component {
 
   onSubChange(activeKey) {
     this.setState({
-      activeKey: activeKey
+      activeKey
     }, () => this.props.onSubAction && this.props.onSubAction(this.props.field, this.state));
   }
 
   render() {
-    let props = this.props,
+    const props = this.props,
       state = this.state;
 
     let className = 'modal-row tab-row';
@@ -74,34 +75,30 @@ class Tab extends React.Component {
 
     const getFieldDecorator = this.props.form ? this.props.form.getFieldDecorator : null;
 
-    return <FormItem
+    return (<FormItem
       label={props.label}
       className={className}
       {...formItemLayout}
-      extra={props.extra}>
+      extra={props.extra}
+    >
       {
-        getFieldDecorator('currentKey')(
-          <Tabs
-            type={state.type}
-            onTabClick={this.onChange}>
-            {state.panes && state.panes.map(pane => {
-              return <TabPane tab={props.__[pane.name]} key={pane.key}>
-                {
-                  getFieldDecorator('currentObjectKey')(
-                    <Tabs
-                      type={state.subtype}
-                      onTabClick={this.onSubChange}>
-                      {state.subpanes && state.subpanes.map(subpane => {
-                        return <TabPane tab={props.__[subpane.name]} key={subpane.key}>{subpane.content}</TabPane>;
-                      })}
-                    </Tabs>
-                  )}
-              </TabPane>;})
-            }
-          </Tabs>
-        )
+        getFieldDecorator('currentKey')(<Tabs
+          type={state.type}
+          onTabClick={this.onChange}
+        >
+          {state.panes && state.panes.map(pane => (<TabPane tab={props.__[pane.name]} key={pane.key}>
+            {
+              getFieldDecorator('currentObjectKey')(<Tabs
+                type={state.subtype}
+                onTabClick={this.onSubChange}
+              >
+                {state.subpanes && state.subpanes.map(subpane => <TabPane tab={props.__[subpane.name]} key={subpane.key}>{subpane.content}</TabPane>)}
+              </Tabs>)}
+          </TabPane>))
+          }
+        </Tabs>)
       }
-    </FormItem>;
+    </FormItem>);
   }
 }
 

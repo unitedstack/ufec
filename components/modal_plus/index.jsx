@@ -5,9 +5,8 @@ import history from '../history';
 import event from './event';
 
 function modal(props) {
-
-  let doc = document.getElementById('main'),
-    root = document.getElementById('modal-container'),
+  const doc = document.getElementById('main');
+  let root = document.getElementById('modal-container'),
     container = null;
 
   if (!root) {
@@ -34,13 +33,13 @@ function modal(props) {
     destroy();
   }
 
-  let _props = {
+  const _props = {
     ...props,
     root,
     onAfterClose
   };
 
-  ReactDOM.render(<Base {..._props}/>, container);
+  ReactDOM.render(<Base {..._props} />, container);
 }
 
 export default modal;

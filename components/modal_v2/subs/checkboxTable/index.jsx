@@ -39,41 +39,44 @@ class CheckboxTableModal extends React.Component {
 
   initialze(state) {
     const inlen = (state.allData.length + state.initData.length) === 1;
-    let userData = state.userData.filter(user => !state.allData.some(init => init.user_name === user.user_id));
-    return <div className="checkout-table-content">
+    const userData = state.userData.filter(user => !state.allData.some(init => init.user_name === user.user_id));
+    return (<div className="checkout-table-content">
       {state.allData.map((d, index) =>
-        <div className="content-wrapper" key={index}>
+        (<div className="content-wrapper" key={index}>
           <Select
-            mode='combobox'
+            mode="combobox"
             value={d.user_name}
-            style={{width: '56px', marginRight: '4px'}}
+            style={{ width: '56px', marginRight: '4px' }}
             dropdownMatchSelectWidth={false}
             notFoundContent={this.props.__.no_data}
-            onChange={this.onInputChange.bind(this, index)}>
-            { userData.map((d, index) => <Option key={d.id} value={d.id}>{d[state.nameType] || '(' + d.id.substring(0, 8) + ')'}</Option>) }
+            onChange={this.onInputChange.bind(this, index)}
+          >
+            { userData.map((_d, _index) => <Option key={_d.id} value={_d.id}>{_d[state.nameType] || `(${_d.id.substring(0, 8)})`}</Option>) }
           </Select>
           <CheckboxGroup
             options={state.options}
             value={d.competence}
-            onChange={this.onChange.bind(this, index)} />
-          <Icon className={!inlen ? 'pointer' : ''} type="close" onClick={!inlen ? this.onDeleteClick.bind(this, index) : null}/>
-        </div>)}
-    </div>;
+            onChange={this.onChange.bind(this, index)}
+          />
+          <Icon className={!inlen ? 'pointer' : ''} type="close" onClick={!inlen ? this.onDeleteClick.bind(this, index) : null} />
+        </div>))}
+    </div>);
   }
 
   initialzeData(state) {
     const len = (state.allData.length + state.initData.length) === 1;
-    return <div className="checkout-table-content">
+    return (<div className="checkout-table-content">
       {state.initData.map((d, index) =>
-        <div className="content-wrapper" key={index}>
+        (<div className="content-wrapper" key={index}>
           <div className="label">{d.user_name}</div>
           <CheckboxGroup
             options={state.options}
             value={d.competence}
-            onChange={this.onInitChange.bind(this, index)} />
-          <Icon className={!len ? 'pointer' : ''} type="close" onClick={!len ? this.onDeleteInitClick.bind(this, index) : null}/>
-        </div>)}
-    </div>;
+            onChange={this.onInitChange.bind(this, index)}
+          />
+          <Icon className={!len ? 'pointer' : ''} type="close" onClick={!len ? this.onDeleteInitClick.bind(this, index) : null} />
+        </div>))}
+    </div>);
   }
 
   onInputChange(index, value) {
@@ -82,7 +85,7 @@ class CheckboxTableModal extends React.Component {
     this.setState({
       allData: this.state.allData
     }, () => {
-      this.triggerValue({allData: this.state.allData});
+      this.triggerValue({ allData: this.state.allData });
     });
   }
 
@@ -92,7 +95,7 @@ class CheckboxTableModal extends React.Component {
     this.setState({
       initData: this.state.initData
     }, () => {
-      this.triggerValue({initData: this.state.initData});
+      this.triggerValue({ initData: this.state.initData });
     });
   }
 
@@ -102,12 +105,12 @@ class CheckboxTableModal extends React.Component {
     this.setState({
       allData: this.state.allData
     }, () => {
-      this.triggerValue({allData: this.state.allData});
+      this.triggerValue({ allData: this.state.allData });
     });
   }
 
   onAddClick = (e) => {
-    let addData = {};
+    const addData = {};
 
     addData.user_name = '';
     addData.competence = [];
@@ -116,7 +119,7 @@ class CheckboxTableModal extends React.Component {
     this.setState({
       allData: this.state.allData
     }, () => {
-      this.triggerValue({allData: this.state.allData});
+      this.triggerValue({ allData: this.state.allData });
     });
   }
 
@@ -126,7 +129,7 @@ class CheckboxTableModal extends React.Component {
     this.setState({
       initData: this.state.initData
     }, () => {
-      this.triggerValue({initData: this.state.initData});
+      this.triggerValue({ initData: this.state.initData });
     });
   }
 
@@ -136,7 +139,7 @@ class CheckboxTableModal extends React.Component {
     this.setState({
       allData: this.state.allData
     }, () => {
-      this.triggerValue({allData: this.state.allData});
+      this.triggerValue({ allData: this.state.allData });
     });
   }
 
@@ -149,17 +152,17 @@ class CheckboxTableModal extends React.Component {
   }
 
   valueIsEmpty(decorator) {
-
-    let value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
-    return value === undefined || value === ''
+    const value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
+    return value === undefined || value === '';
   }
 
   render() {
-    let props = this.props,
+    const props = this.props,
       state = this.state,
       title = props.title,
-      className = 'checkout-table-row',
       hideAddBtn = state.allData && state.initData && state.userData && (state.allData.length >= state.userData.length);
+
+    let className = 'checkout-table-row';
 
     if (this.state.hide) {
       className += ' hide';
@@ -175,34 +178,33 @@ class CheckboxTableModal extends React.Component {
 
     const isRequired = decorator && decorator.rules && decorator.rules.some(rule => rule.required);
 
-    return <FormItem
+    return (<FormItem
       className={className}
       label={props.label}
       required={props.required}
-      {...formItemLayout}>
+      {...formItemLayout}
+    >
       {
         decorator && getFieldDecorator(decorator.id, {
           rules: decorator.rules,
           initialValue: decorator.initialValue,
           onChange: decorator.onChange,
           hidden: state.hide || (!isRequired && this.valueIsEmpty(decorator))
-        })(
-          <div className="checkout-table">
-            <div className="checkout-table-title">
-              {
-                title.map((t, index) => <div key={index}>{props.__[t]}</div>)
-              }
-            </div>
-            {state.allData && state.initData && this.initialzeData(state)}
-            {state.allData && state.initData && this.initialze(state)}
-            <div className={ hideAddBtn ? 'hide' : 'checkout-table-footer' }>
-              <div className="icon" onClick={this.onAddClick}><Icon type="plus" /></div>
-              <div onClick={this.onAddClick}>{props.__[props.addValue]}</div>
-            </div>
+        })(<div className="checkout-table">
+          <div className="checkout-table-title">
+            {
+              title.map((t, index) => <div key={index}>{props.__[t]}</div>)
+            }
           </div>
-        )
+          {state.allData && state.initData && this.initialzeData(state)}
+          {state.allData && state.initData && this.initialze(state)}
+          <div className={hideAddBtn ? 'hide' : 'checkout-table-footer'}>
+            <div className="icon" onClick={this.onAddClick}><Icon type="plus" /></div>
+            <div onClick={this.onAddClick}>{props.__[props.addValue]}</div>
+          </div>
+        </div>)
       }
-    </FormItem>;
+    </FormItem>);
   }
 }
 

@@ -38,17 +38,16 @@ class InputNumberModal extends React.Component {
   }
 
   valueIsEmpty(decorator) {
-
-    let value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
-    return value === undefined || value === ''
+    const value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
+    return value === undefined || value === '';
   }
 
   render() {
-    let state = this.state,
+    const state = this.state,
       props = this.props;
 
     let className = 'input-number-wrapper';
-    const addonAfter = props.addonAfter && props. __[props.addonAfter] ? props.__[props.addonAfter] : props.addonAfter;
+    const addonAfter = props.addonAfter && props.__[props.addonAfter] ? props.__[props.addonAfter] : props.addonAfter;
 
     if (this.state.hide) {
       className += ' hide';
@@ -65,31 +64,32 @@ class InputNumberModal extends React.Component {
     const isRequired = decorator && decorator.rules && decorator.rules.some(rule => rule.required);
 
 
-    return <FormItem
+    return (<FormItem
       label={props.label}
       className={className}
       {...formItemLayout}
-      extra={props.extra}>
+      extra={props.extra}
+    >
       <Tooltip
         title={props.__[props.tipTitle] || props.tipTitle}
-        placement="topLeft">
+        placement="topLeft"
+      >
         {
           decorator && getFieldDecorator(decorator.id, {
             rules: decorator.rules,
             initialValue: decorator.initialValue,
             onChange: decorator.onChange,
             hidden: state.hide || (!isRequired && this.valueIsEmpty(decorator))
-          })(
-            <InputNumber
-              min={state.min}
-              max={state.max}
-              step={props.step}
-              disabled={state.disabled} />
-          )
+          })(<InputNumber
+            min={state.min}
+            max={state.max}
+            step={props.step}
+            disabled={state.disabled}
+          />)
         }
       </Tooltip>
       <span className={props.addonAfter ? 'input-number-addon' : 'hide'}>{addonAfter}</span>
-    </FormItem>;
+    </FormItem>);
   }
 }
 

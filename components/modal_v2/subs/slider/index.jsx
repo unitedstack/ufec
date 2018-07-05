@@ -34,7 +34,7 @@ class Slide extends React.Component {
 
   onChange = (value) => {
     this.setState({
-      value: value
+      value
     }, () => {
       this.props.form.setFieldsValue({
         [this.props.field]: this.state.value
@@ -44,7 +44,7 @@ class Slide extends React.Component {
 
   onSliderChange = (value) => {
     this.setState({
-      value: value
+      value
     }, () => {
       this.props.form.setFieldsValue({
         [this.props.field]: this.state.value
@@ -53,13 +53,12 @@ class Slide extends React.Component {
   }
 
   valueIsEmpty(decorator) {
-
-    let value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
-    return value === undefined || value === ''
+    const value = this.props.form && this.props.form.getFieldValue(decorator && decorator.id);
+    return value === undefined || value === '';
   }
 
   render() {
-    let props = this.props,
+    const props = this.props,
       state = this.state,
       min = state.min,
       max = state.max,
@@ -81,41 +80,41 @@ class Slide extends React.Component {
 
     const isRequired = decorator && decorator.rules && decorator.rules.some(rule => rule.required);
 
-    return <FormItem
+    return (<FormItem
       label={props.label}
       className={className}
       {...formItemLayout}
-      extra={props.extra}>
+      extra={props.extra}
+    >
       {
         decorator && getFieldDecorator(decorator.id, {
           rules: decorator.rules,
           initialValue: decorator.initialValue,
           onChange: decorator.onChange,
           hidden: state.hide || (!isRequired && this.valueIsEmpty(decorator))
-        })(
-          <div>
-            <Slider
-              min={min}
-              max={max}
-              step={props.step}
-              disabled={disabled}
-              onChange={this.onSliderChange}
-              value={state.value}
-              style={{width: '258px'}} />
-            <InputNumber
-              min={min}
-              max={max}
-              value={state.value}
-              style={{ marginLeft: 10, width: 78}}
-              onChange={this.onChange}
-            />
-          </div>
-        )
+        })(<div>
+          <Slider
+            min={min}
+            max={max}
+            step={props.step}
+            disabled={disabled}
+            onChange={this.onSliderChange}
+            value={state.value}
+            style={{ width: '258px' }}
+          />
+          <InputNumber
+            min={min}
+            max={max}
+            value={state.value}
+            style={{ marginLeft: 10, width: 78 }}
+            onChange={this.onChange}
+          />
+        </div>)
       }
       {
-        <div className="range">{state.text ? state.text : (min + '-' + max + props.unit)}</div>
+        <div className="range">{state.text ? state.text : (`${min}-${max}${props.unit}`)}</div>
       }
-    </FormItem>;
+    </FormItem>);
   }
 }
 

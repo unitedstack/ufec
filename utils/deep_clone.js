@@ -5,10 +5,10 @@ function clone(objectToBeCloned) {
     return objectToBeCloned;
   }
 
-  var objectClone;
+  let objectClone;
 
   // Filter out special objects.
-  var Constructor = objectToBeCloned.constructor;
+  const Constructor = objectToBeCloned.constructor;
   switch (Constructor) {
     // Implement other special objects here.
     case RegExp:
@@ -22,7 +22,7 @@ function clone(objectToBeCloned) {
   }
 
   // Clone each property.
-  for (var prop in objectToBeCloned) {
+  for (const prop in objectToBeCloned) {
     objectClone[prop] = clone(objectToBeCloned[prop]);
   }
 
