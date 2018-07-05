@@ -99,7 +99,7 @@ Ufec 有一些命令行的操作.
 
 你可以输入 `node_modules/.bin/ufec -h` 来查看ufec都支持哪些操作。
 
-* 初始化svg图片。
+### 初始化svg图片。
 
 因为ufec本身有一些icon要支持，所以在初始化一个项目的时候，可以使用这个命令把ufec所需要的svg复制到目标文件夹中，比如：
 
@@ -109,7 +109,7 @@ ufec --svg client/iconfonts/svgs/ufec
 
 上边这个命令会把ufec需要的svg图片都复制到`client/iconfonts/svgs/ufec`这个文件夹中。
 
-* 打包i18n json文件
+### 打包i18n json文件
 
 这个命令会把`client`文件夹下所有目录的`lang.json`打包合成一个`${app}.lang.json`，然后放到`client/locale`文件夹中。
 
