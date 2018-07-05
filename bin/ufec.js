@@ -7,6 +7,7 @@ const path = require('path');
 const { green, red, cyan } = require('chalk');
 const { exec } = require('child_process');
 const program = require('commander');
+const transpile = require('./transpile');
 const pkg = require('../package.json');
 
 function isString(str) {
@@ -17,6 +18,7 @@ program
   .version(pkg.version, '-v, --version')
   // .option('-c, --create [moduleName]', 'Create an ufec module.')
   .option('--svg [path]', 'Init svg files.')
+  .option('-t, --transpile', 'Transpile i18n files.')
   .parse(process.argv);
 
 if (program.svg && isString(program.svg)) {
@@ -36,4 +38,8 @@ if (program.svg && isString(program.svg)) {
   });
   childProcess.stdout.pipe(process.stdout);
   childProcess.stderr.pipe(process.stderr);
+}
+
+if (program.transpile) {
+  transpile();
 }

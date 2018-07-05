@@ -12,9 +12,11 @@ class Modal extends React.Component {
   constructor(props) {
     super(props);
 
+    this.__ = props.__ || {};
+
     this.tableColRender(this.props.config.table.columns);
 
-    converter.convertLang(props.__, props.config);
+    converter.convertLang(this.__, props.config);
 
     ['onAction', 'onClickCaptain', 'onClickDetailTabs', 'getCurrentKey'].forEach(func => {
       this[func] = this[func].bind(this);
@@ -279,7 +281,7 @@ class Modal extends React.Component {
                       ref={this.operationsRef}
                       loading={table.loading}
                       operations={operations}
-                      __={this.props.__}
+                      __={this.__}
                     /> : null
                   }
                 </div>

@@ -38,7 +38,7 @@ class ModalBase extends React.Component {
 
   constructor(props) {
     super(props);
-    this.__ = props.__;
+    this.__ = props.__ || {};
     const config = deepClone(props.config);
     this.state = {
       config: config,
@@ -48,7 +48,7 @@ class ModalBase extends React.Component {
       error: false
     };
 
-    convert(this.state.config, props.__);
+    convert(this.state.config, this.__);
   }
 
   initialize() {
