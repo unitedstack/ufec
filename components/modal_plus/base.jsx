@@ -209,7 +209,7 @@ class ModalBase extends React.Component {
           <Icon type="left" />{title}</span>
         </div>
         <div className="content">
-          <div className="content-wrapper">
+          <div className="content-wrapper" style={{width: props.config.width ? `${props.config.width}px` : '592px'}}>
             <Form onSubmit={this.handleSubmit}>
               {this.initialize()}
               <Alert __={__} message={state.message} hide={!state.error} tip_type="error" />
