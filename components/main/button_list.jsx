@@ -7,7 +7,7 @@ class ButtonList extends React.Component {
   }
 
   state = {
-    btns: this.formatData(this.props.btns)
+    btns: this.formatData(this.props.btns) // eslint-disable-line
   }
 
   formatData(btns) {
@@ -41,8 +41,7 @@ class ButtonList extends React.Component {
 
   render() {
     const props = this.props,
-      state = this.state,
-      btns = state.btns,
+      btns = props.btns,
       tableLoading = props.loading;
 
     return (
