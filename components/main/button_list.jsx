@@ -4,8 +4,10 @@ import { Button, Dropdown, Menu, Icon } from 'antd';
 class ButtonList extends React.Component {
   constructor(props) {
     super(props);
+  }
 
-    this.formatData(this.props.btns);
+  state = {
+    btns: this.formatData(this.props.btns)
   }
 
   formatData(btns) {
@@ -39,7 +41,8 @@ class ButtonList extends React.Component {
 
   render() {
     const props = this.props,
-      btns = props.btns,
+      state = this.state,
+      btns = state.btns,
       tableLoading = props.loading;
 
     return (
