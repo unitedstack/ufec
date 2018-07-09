@@ -24,6 +24,9 @@ export default {
         item.name = this.getLangValue(lang, item.name);
       });
     }
+    if (config.title) {
+      config.title = this.getLangValue(lang, config.title);
+    }
     if (config.search && config.search.placeholder) {
       config.search.placeholder = this.getLangValue(lang, config.search.placeholder);
     }

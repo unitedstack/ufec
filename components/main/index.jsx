@@ -204,6 +204,7 @@ class Modal extends React.Component {
   render() {
     const _config = this.props.config,
       tabs = _config.tabs,
+      title = _config.title,
       btns = _config.btns,
       table = _config.table,
       columns = table.columns,
@@ -257,6 +258,9 @@ class Modal extends React.Component {
     return (
       <div className="garen-com-main">
         <div className="margin-wrapper">
+          {
+            title ? <div className="title">{title}</div> : null
+          }
           <div className="main-content">
             {tabs ?
               <div className="submenu-tabs">

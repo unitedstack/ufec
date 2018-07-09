@@ -20,5 +20,6 @@ const HISTORY = createBrowserHistory({
 });
 // 注意！这里的pathList是将basename忽略的！！为了跟忽略basename的link和route统一
 HISTORY.getPathList = getPathList;
+HISTORY.currentUfecApp = currentUfecApp;
 
 export default HISTORY;
