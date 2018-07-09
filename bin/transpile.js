@@ -9,7 +9,8 @@ module.exports = function () {
     language = 'zh-CN';
   }
 
-  const clientDir = path.resolve(process.cwd(), 'client');
+  const root = process.cwd();
+  const clientDir = path.resolve(root, 'client');
   const appsDir = path.join(clientDir, 'applications');
   const applications = fs.readdirSync(appsDir)
     .filter(m => fs.statSync(path.join(appsDir, m)).isDirectory());
@@ -65,7 +66,9 @@ module.exports = function () {
     const appDir = `${clientDir}/applications/${app}`;
 
     glob(`${appDir}/modules/**/lang.json`, {}, (er, files) => {
-      files.unshift(`${appDir}/locale/lang.json`);
+      files.unshift(path.resolve(clientDir, 'lang/lang.json'));
+      files.unshift(path.resolve(appDir, 'locale/lang.json'));
+
       const file = '';
       try {
         const output = {};
