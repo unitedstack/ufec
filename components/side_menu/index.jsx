@@ -34,9 +34,6 @@ class SideMenu extends React.Component {
     const __ = this.props.__;
     return items ?
       <div className="side_menu">
-        <div className="logo-wrapper">
-          <img src={this.state.collapsed ? '/public/assets/logo_no_text.png' : '/public/assets/logo.png'} />
-        </div>
         <div className="menu-wrapper">
           <Menu
             selectedKeys={items.defaultSelectedKeys}
