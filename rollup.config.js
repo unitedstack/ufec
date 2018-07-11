@@ -4,7 +4,7 @@ import json from 'rollup-plugin-json';
 
 export default {
   input: './components/index',
-  external: ['react', 'react-dom', 'react-router-dom', 'antd', 'history'],
+  external: ['react', 'react-dom', 'react-router-dom', 'antd', 'history', 'rsvp'],
   output: {
     format: 'es',
     file: 'lib/ufec.js'

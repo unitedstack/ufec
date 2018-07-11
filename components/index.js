@@ -16,3 +16,8 @@ export * as Subs from './modal_v2/subs/export';
 
 // react-router history state
 export history from './history';
+
+export ajax from './ajax';
+export fetch from './fetch';
+// use to report web errors.
+export errorSpy from './error-spy';

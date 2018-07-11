@@ -5,8 +5,8 @@
   "main": "index.js",
   "bin": "bin/ufec.js",
   "scripts": {
-    "build": "rm -rf lib/ && rollup -c rollup.config.js",
-    "dev": "rm -rf lib/ && rollup -c rollup.config.js -w ",
+    "build": "rm lib/ufec.js && rollup -c rollup.config.js",
+    "dev": "rm lib/ufec.js && rollup -c rollup.config.js -w ",
     "git": "git add .",
     "lint": "uslint bin/ components/ utils/",
     "patch": "relix --patch",
@@ -33,7 +33,8 @@
     "commander": "^2.16.0",
     "emitry": "^1.2.0",
     "glob": "^7.1.2",
-    "history": "^4.7.2"
+    "history": "^4.7.2",
+    "source-map": "^0.7.3"
   },
   "devDependencies": {
     "babel-core": "^6.1.12",
@@ -51,7 +52,7 @@
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-node-resolve": "^3.3.0",
-    "uslint": "^0.4.0"
+    "uslint": "^0.4.1"
   },
   "pre-commit": [
     "lint",
