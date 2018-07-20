@@ -15,9 +15,9 @@ export default {
   },
 
   convertLang(lang, config) {
-    if (config.info) {
-      config.info.title = this.getLangValue(lang, config.info.title);
-      config.info.content = this.getLangValue(lang, config.info.content);
+    if (config.banner) {
+      config.banner.message = this.getLangValue(lang, config.banner.message);
+      config.banner.description = this.getLangValue(lang, config.banner.description);
     }
     if (config.tabs) {
       config.tabs.forEach((item) => {

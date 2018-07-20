@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Tabs, Icon, Input } from 'antd';
+import { Table, Tabs, Icon, Input, Alert } from 'antd';
 import history from '../history';
 import Detail from './detail';
 import ButtonList from './button_list';
@@ -205,6 +205,7 @@ class Modal extends React.Component {
     const _config = this.props.config,
       tabs = _config.tabs,
       title = _config.title,
+      banner = _config.banner,
       btns = _config.btns,
       table = _config.table,
       columns = table.columns,
@@ -258,6 +259,11 @@ class Modal extends React.Component {
     return (
       <div className="garen-com-main">
         <div className="margin-wrapper">
+          {
+            banner ? <div className="banner-wrapper">
+              <Alert {...banner} />
+            </div> : null
+          }
           {
             title ? <div className="title">{title}</div> : null
           }
