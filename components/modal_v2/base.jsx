@@ -27,6 +27,7 @@ import Text from './subs/text/index';
 import IconLabel from './subs/iconLabel/index';
 import TreeSelect from './subs/treeSelect/index';
 import DatePicker from './subs/datePicker/index';
+import InputKeypairs from './subs/inputKeypairs/index';
 
 import Custom from './subs/custom/index';
 
@@ -78,7 +79,8 @@ class ModalBase extends React.Component {
         text: Text,
         iconLabel: IconLabel,
         treeSelect: TreeSelect,
-        datePicker: DatePicker
+        datePicker: DatePicker,
+        inputKeypairs: InputKeypairs
       };
 
       const Sub = subComs[m.type];

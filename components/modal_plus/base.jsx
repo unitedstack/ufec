@@ -25,6 +25,7 @@ import CheckboxTable from '../modal_v2/subs/checkboxTable/index';
 import Text from '../modal_v2/subs/text/index';
 import IconLabel from '../modal_v2/subs/iconLabel/index';
 import TreeSelect from '../modal_v2/subs/treeSelect/index';
+import InputKeypairs from '../modal_v2/subs/inputKeypairs/index';
 
 import event from './event';
 import deepClone from '../../utils/deep_clone';
@@ -76,7 +77,9 @@ class ModalBase extends React.Component {
         checkboxTable: CheckboxTable,
         text: Text,
         iconLabel: IconLabel,
-        treeSelect: TreeSelect
+        treeSelect: TreeSelect,
+        inputKeypairs: InputKeypairs
+
       };
 
       const Sub = subComs[m.type] || (contents && contents[m.type]);
