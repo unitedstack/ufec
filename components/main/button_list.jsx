@@ -60,7 +60,7 @@ class ButtonList extends React.Component {
               );
               return (<Dropdown key={btn.key} overlay={menu} trigger={['click']} disabled={btn.disabled}>
                 <Button type={btn.type}>
-                  <Icon type="more" />{btn.value} <Icon type={btn.icon || 'caret-down-right'} />
+                  <Icon type={btn.iconPrefix || 'more'} />{btn.value} <Icon type={btn.iconSuffix || 'caret-down-right'} />
                 </Button>
               </Dropdown>);
             }
