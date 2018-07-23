@@ -19,6 +19,8 @@ class SideMenu extends React.Component {
   }
 
   getIconByName(name) {
+    const iconsMap = this.props.iconsMap || (n => n);
+    name = iconsMap(name);
     switch (name) {
       case 'block-storage':
         return 'storage-volume';
