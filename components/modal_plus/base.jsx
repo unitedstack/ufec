@@ -211,7 +211,7 @@ class ModalBase extends React.Component {
             <Form onSubmit={this.handleSubmit}>
               {this.initialize()}
               <Alert __={__} message={state.message} hide={!state.error} tip_type="error" />
-              <div className="btn-wrapper" style={{ display: (props.config.btn && props.config.btn.hide) ? 'none' : 'block' }}>
+              <div className="btn-wrapper" style={{ display: (props.config.btn && props.config.btn.hide) ? 'none' : 'flex' }}>
                 <Button className="cancel-button" type="dashed" onClick={this.onCancel}>{__.cancel}</Button>
                 <Button className="create-button" loading={state.loading} type={props.config.btn.type} htmlType="submit">{__[props.config.btn.value]}</Button>
               </div>
