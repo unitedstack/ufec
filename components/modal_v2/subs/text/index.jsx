@@ -56,7 +56,7 @@ class Text extends React.Component {
       className={className}
       label={props.label}
       required={props.required}
-      labelCol={{ span: 6 }}
+      labelCol={{ span: props.labelCol || 6 }}
       wrapperCol={{ span: 18 }}
     >
       <span style={this.setColorByType(props.text_type)}>{props.__[state.info] || state.info}</span>
