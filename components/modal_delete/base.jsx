@@ -78,7 +78,9 @@ class ModalBase extends React.Component {
       }, () => {
         refList.pop();
         setTimeout(() => {
-          ReactDOM.unmountComponentAtNode(this.props.childNodes[len - 1]);
+          const cur = this.props.childNodes[len - 1];
+          cur && cur.parentNode && cur.parentNode.removeChild(cur);
+          ReactDOM.unmountComponentAtNode(cur);
         }, 300);
       });
     } else {

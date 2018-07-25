@@ -219,7 +219,9 @@ class ModalBase extends React.Component {
         // 清理全局事件中的当前pop的事件
         event.off([`valuesChange_${index}`]);
         setTimeout(() => {
-          ReactDOM.unmountComponentAtNode(this.props.childNodes[len - 1]);
+          const cur = this.props.childNodes[len - 1];
+          cur && cur.parentNode && cur.parentNode.removeChild(cur);
+          ReactDOM.unmountComponentAtNode(cur);
         }, 300);
       });
     } else {
