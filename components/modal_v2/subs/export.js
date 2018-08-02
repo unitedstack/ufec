@@ -7,6 +7,7 @@ export DatePicker from './datePicker';
 export IconLabel from './iconLabel';
 export Input from './input';
 export InputNumber from './inputNumber';
+export InputKeypairs from './inputKeypairs';
 export MultipleChoice from './multipleChoice';
 export MultistageTabs from './multistageTabs';
 export Radio from './radio';
