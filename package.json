@@ -1,6 +1,6 @@
 {
   "name": "ufec",
-  "version": "1.8.4",
+  "version": "1.8.5",
   "description": "ustack front end component",
   "main": "lib/ufec.js",
   "bin": "bin/ufec.js",
@@ -48,7 +48,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "pre-commit": "^1.2.2",
-    "relix": "^0.2.1",
+    "relix": "^1.1.1",
     "rollup": "^0.58.2",
     "rollup-plugin-babel": "^3.0.4",
     "rollup-plugin-json": "^2.3.0",
