@@ -105,6 +105,7 @@ class Slide extends React.Component {
           <InputNumber
             min={min}
             max={max}
+            step={props.step}
             value={state.value}
             style={{ marginLeft: 10, width: 78 }}
             onChange={this.onChange}
