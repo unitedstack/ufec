@@ -3,9 +3,13 @@
 [![npm](https://img.shields.io/npm/l/ufec.svg)](https://www.npmjs.com/package/ufec)
 
 # ufec
-ustack front end component
+一个基于antd实现的一套组件封装，用于开发管理平台面板。配置 = 界面。
 
-## Install
+暂时没有比较详尽的组件使用文档，但是我们基于ufec构建了一个完善的管理平台面板，模拟了一些使用场景，通过查看源代码即可清晰的知道组件的用法。
+
+模拟平台： [http://ufec.tfcloud.com/](http://ufec.tfcloud.com/)
+
+## 安装
 
 ```bash
 npm i ufec --save
