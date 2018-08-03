@@ -30,7 +30,7 @@ class Text extends React.Component {
     switch (type) {
       case 'info':
         return { color: '#01AFC9' };
-      case 'waring':
+      case 'warning':
         return { color: '#FCA625' };
       case 'error':
         return { color: '#EF6D64' };
