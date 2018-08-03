@@ -112,6 +112,12 @@ export default (function (m) {
         } catch (e) {
           ret = {};
         }
+      } else if (dataType === 'text/plain') {
+        try {
+          ret = data;
+        } catch (e) {
+          ret = {};
+        }
       } else if (dataType === 'xml') {
         // Inspired by jQquery
         let xml,
