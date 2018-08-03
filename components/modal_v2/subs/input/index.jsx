@@ -19,6 +19,7 @@
  *
  * groupInput:
  * data: array 数据 data=['x', 'xx'] 必需
+ * selectInitialValue: 下拉框初始值
  *
  * password
  */
@@ -90,9 +91,10 @@ class InputModal extends React.Component {
         return (<InputGroup>
           <Select
             getPopupContainer={trigger => trigger.parentNode}
+            defaultValue={props.selectInitialValue}
           >
             {
-              props.data && props.data.map((dt, index) => <Option key={index} value={dt}>{__[dt]}</Option>)
+              props.data && props.data.map((dt, index) => <Option key={index} value={dt}>{__[dt] || dt}</Option>)
             }
           </Select>
           <AutoComplete
