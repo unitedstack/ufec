@@ -44,7 +44,6 @@ class CheckboxTableModal extends React.Component {
       {state.allData.map((d, index) =>
         (<div className="content-wrapper" key={index}>
           <Select
-            mode="combobox"
             value={d.user_name}
             style={{ width: '56px', marginRight: '4px' }}
             dropdownMatchSelectWidth={false}
