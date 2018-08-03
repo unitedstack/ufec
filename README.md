@@ -142,3 +142,7 @@ npm run transpile --lang=en
 ```
 
 这样会生成英文lang文件，不传的默认生成中文lang文件。
+
+## LICENSE
+
+[MIT](./LICENSE) © TFCloud
