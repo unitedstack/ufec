@@ -18,7 +18,7 @@ program
   .version(pkg.version, '-v, --version')
   // .option('-c, --create [moduleName]', 'Create an ufec module.')
   .option('--svg [path]', 'Init svg files.')
-  .option('-t, --transpile', 'Transpile i18n files.')
+  .option('-t, --transpile [root]', 'Transpile i18n files.')
   .parse(process.argv);
 
 if (program.svg && isString(program.svg)) {
@@ -41,5 +41,9 @@ if (program.svg && isString(program.svg)) {
 }
 
 if (program.transpile) {
-  transpile();
+  if (typeof program.transpile === 'string') {
+    transpile(program.transpile);
+  } else {
+    transpile('client');
+  }
 }

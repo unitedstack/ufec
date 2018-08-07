@@ -3,14 +3,14 @@ const path = require('path');
 const glob = require('glob');
 const chalk = require('chalk');
 
-module.exports = function () {
+module.exports = function (client) {
   let language = process.env.npm_config_lang || process.env.language;
   if (!language) {
     language = 'zh-CN';
   }
 
   const root = process.cwd();
-  const clientDir = path.resolve(root, 'client');
+  const clientDir = path.resolve(root, client);
   const appsDir = path.join(clientDir, 'applications');
   const applications = fs.readdirSync(appsDir)
     .filter(m => fs.statSync(path.join(appsDir, m)).isDirectory());
