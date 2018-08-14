@@ -41,10 +41,9 @@ class Tab extends React.Component {
   }
 
   onChange(activeKey) {
+    this.props.onAction && this.props.onAction(this.props.field, Object.assign({}, this.state, { activeKey }));
     this.setState({
       activeKey
-    }, () => {
-      this.props.onAction && this.props.onAction(this.props.field, this.state);
     });
   }
 
