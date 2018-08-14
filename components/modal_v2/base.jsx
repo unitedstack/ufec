@@ -52,6 +52,7 @@ class ModalBase extends React.Component {
   }
 
   initialize() {
+    const contents = this.props.contents;
     const config = this.state.config;
     return config.fields.map((m) => {
       m.label = this.__[m.field] || m.field;
@@ -83,7 +84,7 @@ class ModalBase extends React.Component {
         inputKeypairs: InputKeypairs
       };
 
-      const Sub = subComs[m.type];
+      const Sub = subComs[m.type] || (contents && contents[m.type]);
       return Sub ? <Sub key={m.field} onAction={this.onAction} {...m} /> : null;
     });
   }
