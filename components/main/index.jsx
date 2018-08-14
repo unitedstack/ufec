@@ -224,8 +224,16 @@ class Modal extends React.Component {
         total: table.total,
         onChange: (page, pageSize) => {
           this.onAction('pagination', 'click', {
+            type: 'page',
             page,
             pageSize
+          });
+        },
+        onShowSizeChange: (current, size) => {
+          this.onAction('pagination', 'click', {
+            type: 'pageSize',
+            current,
+            size
           });
         },
         ...table.pagination
