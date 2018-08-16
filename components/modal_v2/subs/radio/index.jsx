@@ -60,6 +60,8 @@ class RadioModal extends React.Component {
 
     const isRequired = decorator && decorator.rules && decorator.rules.some(rule => rule.required);
 
+    const style = props.itemWidth ? { width: props.itemWidth } : { minWidth: 30 };
+
 
     return (<FormItem
       label={props.label}
@@ -76,7 +78,7 @@ class RadioModal extends React.Component {
         })(<RadioGroup disabled={state.disabled}>
           {
             state.data && state.data.map((d, index) => (<TheRadio
-              style={{ width: props.itemWidth || 144 }}
+              style={style}
               key={d.id}
               value={d.id}
             >
