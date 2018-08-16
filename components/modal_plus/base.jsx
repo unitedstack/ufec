@@ -26,6 +26,7 @@ import Text from '../modal_v2/subs/text/index';
 import IconLabel from '../modal_v2/subs/iconLabel/index';
 import TreeSelect from '../modal_v2/subs/treeSelect/index';
 import InputKeypairs from '../modal_v2/subs/inputKeypairs/index';
+import Adapter from '../modal_v2/subs/adapter/index';
 
 import event from './event';
 import deepClone from '../../utils/deep_clone';
@@ -78,8 +79,8 @@ class ModalBase extends React.Component {
         text: Text,
         iconLabel: IconLabel,
         treeSelect: TreeSelect,
-        inputKeypairs: InputKeypairs
-
+        inputKeypairs: InputKeypairs,
+        adapter: Adapter
       };
 
       const Sub = subComs[m.type] || (contents && contents[m.type]);

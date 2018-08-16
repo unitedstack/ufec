@@ -31,7 +31,10 @@ class CheckboxModal extends React.Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
+    const _data = JSON.parse(JSON.stringify(nextProps.data));
+    _data.forEach(op => op.label = nextProps.__[op.label] || op.label);
     return {
+      options: _data,
       hide: nextProps.hide,
       disabled: nextProps.disabled
     };
