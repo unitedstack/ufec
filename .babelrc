@@ -1,5 +1,4 @@
 {
   "presets": [["env", {"modules": false}], "stage-0", "react"],
-  "plugins": ["external-helpers", ["import", { "libraryName": "antd"}]]
+  "plugins": ["external-helpers"]
 }
-
