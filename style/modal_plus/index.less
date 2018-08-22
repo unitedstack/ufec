@@ -9,9 +9,10 @@
   position: relative;
 }
 .component_modal_plus {
-  display: block;
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  overflow-y: auto;
+  overflow-y: hidden;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -24,7 +25,6 @@
   .title {
     height: 40px;
     line-height: 40px;
-    margin-bottom: 34px;
     border-bottom: 2px solid @border_color;
     padding-left: 20px;
     box-sizing: border-box;
@@ -36,7 +36,9 @@
     }
   }
   .content {
-    overflow: auto;
+    flex: 1;
+    padding: 34px 0;
+    overflow-y: auto;
     .content-wrapper {
       width: 592px;
     }
