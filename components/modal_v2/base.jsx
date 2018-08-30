@@ -234,15 +234,6 @@ class ModalBase extends React.Component {
     cb && cb();
   }
 
-  onKeyDown = (e) => {
-    // Modal自带ESC监听，所以无需处理
-
-    // Enter keyCode === 13
-    if (this.state.visible && e.keyCode === 13) {
-      this.handleSubmit(e);
-    }
-  }
-
   modalRef = React.createRef();
 
   render() {
@@ -259,7 +250,7 @@ class ModalBase extends React.Component {
 
     return (
       // wrapper for keyboard listener.
-      <div onKeyDown={this.onKeyDown}>
+      <div>
         <Modal
           title={title}
           ref={this.modalRef}
