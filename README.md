@@ -62,6 +62,7 @@ Subs包含着一些小组件，这些子组件和Modal配合使用可以通过�
 * autoComplete
 * checkbox
 * checkboxTable
+* codemirror
 * datePicker
 * iconLabel
 * input

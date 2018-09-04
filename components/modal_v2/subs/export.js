@@ -3,6 +3,7 @@ export AlertWithClick from './alertWithClick';
 export AutoComplete from './autoComplete';
 export Checkbox from './checkbox';
 export CheckboxTable from './checkboxTable';
+export CodeMirror from './codemirror';
 export DatePicker from './datePicker';
 export IconLabel from './iconLabel';
 export Input from './input';
