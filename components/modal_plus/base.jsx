@@ -22,6 +22,7 @@ import AlertWithClick from '../modal_v2/subs/alertWithClick/index';
 import AutoComplete from '../modal_v2/subs/autoComplete/index';
 import Checkbox from '../modal_v2/subs/checkbox/index';
 import CheckboxTable from '../modal_v2/subs/checkboxTable/index';
+import CodeMirror from '../modal_v2/subs/codemirror/index';
 import Text from '../modal_v2/subs/text/index';
 import IconLabel from '../modal_v2/subs/iconLabel/index';
 import TreeSelect from '../modal_v2/subs/treeSelect/index';
@@ -76,6 +77,7 @@ class ModalBase extends React.Component {
         autoComplete: AutoComplete,
         checkbox: Checkbox,
         checkboxTable: CheckboxTable,
+        codemirror: CodeMirror,
         text: Text,
         iconLabel: IconLabel,
         treeSelect: TreeSelect,
