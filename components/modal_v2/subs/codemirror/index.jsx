@@ -4,6 +4,7 @@
  * 支持的lang为: ['xml', 'htmlmixed', 'css', 'javascript', 'yaml', 'python']
  * 支持的theme为: ['material', 'neat']
  * lineNumbers: 是否显示行号
+ * height: 代码块的最大高度
  */
 
 import React from 'react';
@@ -74,7 +75,8 @@ class CodemirrorModal extends React.Component {
       wrapperCol: { span: 18 }
     };
     const decorator = props.decorator;
-    const { getFieldDecorator } = this.props.form;
+    const { getFieldDecorator } = props.form;
+    const style = { height: props.height || 200 };
 
     return (<div className={props.className}>
       <FormItem
@@ -82,14 +84,14 @@ class CodemirrorModal extends React.Component {
         required={props.required}
         className={className}
         {...formItemLayout}
-        validateStatus={state.status}
-        help={props.__[state.msg] || state.msg}
+        help={state.lang}
+        extra={props.__[props.extra] || props.extra}
       >
         {
           decorator && !state.hide ? getFieldDecorator(decorator.id, {
             rules: decorator.rules,
             initialValue: decorator.initialValue
-          })(<div className="code" ref={self => this.ref = self} />) : <div />
+          })(<div className="code" style={style} ref={self => this.ref = self} />) : <div />
         }
       </FormItem>
     </div>);
