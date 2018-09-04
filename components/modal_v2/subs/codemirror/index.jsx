@@ -35,7 +35,7 @@ class CodemirrorModal extends React.Component {
       value: this.props.decorator.initialValue || '',
       theme: this.props.theme || 'neat',
       lang: this.props.lang || 'yaml',
-      lineNumbers: this.props.lineNumbers || true
+      lineNumbers: typeof this.props.lineNumbers === 'boolean' ? this.props.lineNumbers : true
     };
   }
 
