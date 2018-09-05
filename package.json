@@ -5,6 +5,7 @@
   "main": "lib/ufec.js",
   "bin": "bin/ufec.js",
   "scripts": {
+    "remove": "npm remove antd && git reset && git checkout .babelrc",
     "build": "rm -rf lib/ufec.js && rollup -c rollup.config.js",
     "dev": "rm -rf lib/ufec.js && rollup -c rollup.config.js -w ",
     "git": "git add .",
@@ -62,6 +63,7 @@
   },
   "pre-commit": [
     "lint",
+    "remove",
     "build",
     "git"
   ],

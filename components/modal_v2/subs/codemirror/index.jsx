@@ -41,16 +41,25 @@ class CodemirrorModal extends React.Component {
 
   componentDidMount() {
     const state = this.state;
-    const editor = CodeMirror(this.ref, {
+    this.editor = CodeMirror(this.ref, {
       value: state.value,
       mode: state.lang,
       theme: state.theme,
       lineNumbers: state.lineNumbers,
       matchBrackets: true
     });
-    editor.on('change', (codemirrorIns, codemirrorObj) => {
-      this.onChange(editor.getValue());
+    this.editor.on('change', (codemirrorIns, codemirrorObj) => {
+      this.onChange(this.editor.getValue());
     });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // 通过updateFields设置初始值
+    const oldInitValue = prevProps.decorator.initialValue;
+    const newInitValue = this.props.decorator.initialValue;
+    if (oldInitValue !== newInitValue) {
+      this.editor.setValue(newInitValue);
+    }
   }
 
   onChange = (value) => {
