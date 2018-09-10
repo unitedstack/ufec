@@ -46,7 +46,6 @@ export default (function (m) {
               resolve(request.converters(o.dataType, this.response));
             }
           } else {
-            console.log(this.status, o.url, o.data);
             reject(this);
           }
         }
