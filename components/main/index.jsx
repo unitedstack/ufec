@@ -211,13 +211,14 @@ class Modal extends React.Component {
       columns = table.columns,
       data = table.data,
       detail = table.detail,
+      size = table.size,
       search = _config.search,
       operations = _config.operations,
       showPage = {
         withPage: true,
         ...table.showPage
       },
-      pagination = {
+      pagination = table.pagination === false ? false : {
         hideOnSinglePage: true,
         pageSize: table.limit,
         showQuickJumper: true,
@@ -229,11 +230,11 @@ class Modal extends React.Component {
             pageSize
           });
         },
-        onShowSizeChange: (current, size) => {
+        onShowSizeChange: (current, pageSize) => {
           this.onAction('pagination', 'click', {
             type: 'pageSize',
             current,
-            size
+            pageSize
           });
         },
         ...table.pagination
@@ -322,6 +323,7 @@ class Modal extends React.Component {
                   loading={spinProps}
                   locale={{ emptyText: this.props.no_data }}
                   pagination={pagination}
+                  size={size}
                   columns={columns}
                   dataKey={table.dataKey}
                   rowSelection={table.checkbox ? rowSelection : null}
