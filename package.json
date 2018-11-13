@@ -1,6 +1,6 @@
 {
   "name": "ufec",
-  "version": "1.10.5",
+  "version": "1.10.6",
   "description": "ustack front end component",
   "main": "lib/ufec.js",
   "bin": "bin/ufec.js",
@@ -48,7 +48,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "codemirror": "^5.40.0",
+    "codemirror": "^5.41.0",
     "pre-commit": "^1.2.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
