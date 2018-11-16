@@ -30,6 +30,11 @@
     "url": "https://github.com/unitedstack/ufec/issues"
   },
   "homepage": "https://github.com/unitedstack/ufec#readme",
+  "peerDependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "antd": "^3.10.0"
+  },
   "dependencies": {
     "chalk": "^2.4.1",
     "codemirror": "^5.41.0",
