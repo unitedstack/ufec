@@ -13,7 +13,7 @@ import { createBrowserHistory } from 'history';
 
 const currentUfecApp = window.CURRENT_UFEC_APP || HALO.application.current_application || 'dashboard';
 
-const getPathList = () => window.location.pathname.split('/').filter(m => !!m && m !== currentUfecApp);
+const getPathList = () => window.location.pathname.split('/').filter((m, index) => index > 1 && !!m);
 
 const HISTORY = createBrowserHistory({
   basename: `/${currentUfecApp}`
